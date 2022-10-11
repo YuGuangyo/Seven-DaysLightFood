@@ -13,7 +13,8 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
         typeof define === 'function' && define.amd ? define(factory) :
             (global.ScrollReveal = factory());
-}(this, (function () { 'use strict';
+}(this, (function () {
+    'use strict';
 
     var defaults = {
         delay: 0,
@@ -42,20 +43,28 @@
             bottom: 0,
             left: 0
         },
-        afterReset: function afterReset() {},
-        afterReveal: function afterReveal() {},
-        beforeReset: function beforeReset() {},
-        beforeReveal: function beforeReveal() {}
+        afterReset: function afterReset() {
+        },
+        afterReveal: function afterReveal() {
+        },
+        beforeReset: function beforeReset() {
+        },
+        beforeReveal: function beforeReveal() {
+        }
     }
 
     function failure() {
         document.documentElement.classList.remove('sr');
 
         return {
-            clean: function clean() {},
-            destroy: function destroy() {},
-            reveal: function reveal() {},
-            sync: function sync() {},
+            clean: function clean() {
+            },
+            destroy: function destroy() {
+            },
+            reveal: function reveal() {
+            },
+            sync: function sync() {
+            },
             get noop() {
                 return true
             }
@@ -69,12 +78,12 @@
             document.body.style.height = '100%';
         } else {
             document.addEventListener('DOMContentLoaded', function () {
-                 document.body.style.height = '100%';
+                document.body.style.height = '100%';
             });
         }
     }
 
-    var mount = { success: success, failure: failure }
+    var mount = {success: success, failure: failure}
 
     /*! @license is-dom-node v1.0.4
 
@@ -168,11 +177,19 @@
 
     */
     function tealight(target, context) {
-        if ( context === void 0 ) { context = document; }
+        if (context === void 0) {
+            context = document;
+        }
 
-        if (target instanceof Array) { return target.filter(isDomNode); }
-        if (isDomNode(target)) { return [target]; }
-        if (isDomNodeList(target)) { return Array.prototype.slice.call(target); }
+        if (target instanceof Array) {
+            return target.filter(isDomNode);
+        }
+        if (isDomNode(target)) {
+            return [target];
+        }
+        if (isDomNodeList(target)) {
+            return Array.prototype.slice.call(target);
+        }
         if (typeof target === "string") {
             try {
                 var query = context.querySelectorAll(target);
@@ -196,21 +213,27 @@
     function each(collection, callback) {
         if (isObject(collection)) {
             var keys = Object.keys(collection);
-            return keys.forEach(function (key) { return callback(collection[key], key, collection); })
+            return keys.forEach(function (key) {
+                return callback(collection[key], key, collection);
+            })
         }
         if (collection instanceof Array) {
-            return collection.forEach(function (item, i) { return callback(item, i, collection); })
+            return collection.forEach(function (item, i) {
+                return callback(item, i, collection);
+            })
         }
         throw new TypeError('Expected either an array or object literal.')
     }
 
     function logger(message) {
         var details = [], len = arguments.length - 1;
-        while ( len-- > 0 ) details[ len ] = arguments[ len + 1 ];
+        while (len-- > 0) details[len] = arguments[len + 1];
 
         if (this.constructor.debug && console) {
             var report = "%cScrollReveal: " + message;
-            details.forEach(function (detail) { return (report += "\n — " + detail); });
+            details.forEach(function (detail) {
+                return (report += "\n — " + detail);
+            });
             console.log(report, 'color: #ea654b;'); // eslint-disable-line no-console
         }
     }
@@ -218,10 +241,12 @@
     function rinse() {
         var this$1 = this;
 
-        var struct = function () { return ({
-            active: [],
-            stale: []
-        }); };
+        var struct = function () {
+            return ({
+                active: [],
+                stale: []
+            });
+        };
 
         var elementIds = struct();
         var sequenceIds = struct();
@@ -247,7 +272,9 @@
             }
         });
 
-        each(elementIds.stale, function (staleId) { return delete this$1.store.elements[staleId]; });
+        each(elementIds.stale, function (staleId) {
+            return delete this$1.store.elements[staleId];
+        });
 
         /**
          * Take stock of active container and sequence IDs.
@@ -288,7 +315,9 @@
             }
         });
 
-        each(sequenceIds.stale, function (staleId) { return delete this$1.store.sequences[staleId]; });
+        each(sequenceIds.stale, function (staleId) {
+            return delete this$1.store.sequences[staleId];
+        });
     }
 
     function clean(target) {
@@ -376,6 +405,7 @@
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
         THE SOFTWARE.
     */
+
     /**
      * @module Rematrix
      */
@@ -581,7 +611,7 @@
         var style = document.documentElement.style;
 
         function getPrefixedCssProperty(name, source) {
-            if ( source === void 0 ) source = style;
+            if (source === void 0) source = style;
 
             if (name && typeof name === 'string') {
                 if (properties[name]) {
@@ -598,7 +628,9 @@
             throw new TypeError('Expected a string.')
         }
 
-        getPrefixedCssProperty.clearCache = function () { return (properties = {}); };
+        getPrefixedCssProperty.clearCache = function () {
+            return (properties = {});
+        };
 
         return getPrefixedCssProperty
     })();
@@ -615,11 +647,17 @@
         var inlineStyle = element.node.getAttribute('style') || '';
         var inlineMatch = inlineStyle.match(/[\w-]+\s*:\s*[^;]+\s*/gi) || [];
 
-        inline.computed = inlineMatch ? inlineMatch.map(function (m) { return m.trim(); }).join('; ') + ';' : '';
+        inline.computed = inlineMatch ? inlineMatch.map(function (m) {
+            return m.trim();
+        }).join('; ') + ';' : '';
 
-        inline.generated = inlineMatch.some(function (m) { return m.match(/visibility\s?:\s?visible/i); })
+        inline.generated = inlineMatch.some(function (m) {
+            return m.match(/visibility\s?:\s?visible/i);
+        })
             ? inline.computed
-            : inlineMatch.concat( ['visibility: visible']).map(function (m) { return m.trim(); }).join('; ') + ';';
+            : inlineMatch.concat(['visibility: visible']).map(function (m) {
+            return m.trim();
+        }).join('; ') + ';';
 
         /**
          * Generate opacity styles
@@ -689,9 +727,15 @@
             }
         }
 
-        if (config.rotate.x) { transformations.push(rotateX(config.rotate.x)); }
-        if (config.rotate.y) { transformations.push(rotateY(config.rotate.y)); }
-        if (config.rotate.z) { transformations.push(rotateZ(config.rotate.z)); }
+        if (config.rotate.x) {
+            transformations.push(rotateX(config.rotate.x));
+        }
+        if (config.rotate.y) {
+            transformations.push(rotateY(config.rotate.y));
+        }
+        if (config.rotate.z) {
+            transformations.push(rotateZ(config.rotate.z));
+        }
         if (config.scale !== 1) {
             if (config.scale === 0) {
                 /**
@@ -816,7 +860,7 @@
     }
 
     function animate(element, force) {
-        if ( force === void 0 ) force = {};
+        if (force === void 0) force = {};
 
         var pristine = force.pristine || this.pristine;
         var delayed =
@@ -848,7 +892,9 @@
             styles.push(element.styles.transition.generated.instant);
         }
         element.revealed = element.seen = true;
-        element.node.setAttribute('style', styles.filter(function (s) { return s !== ''; }).join(' '));
+        element.node.setAttribute('style', styles.filter(function (s) {
+            return s !== '';
+        }).join(' '));
         registerCallbacks.call(this, element, delayed);
     }
 
@@ -860,7 +906,9 @@
             element.styles.transition.generated.instant
         ];
         element.revealed = false;
-        element.node.setAttribute('style', styles.filter(function (s) { return s !== ''; }).join(' '));
+        element.node.setAttribute('style', styles.filter(function (s) {
+            return s !== '';
+        }).join(' '));
         registerCallbacks.call(this, element);
     }
 
@@ -901,17 +949,19 @@
 
     var nextUniqueId = (function () {
         var uid = 0;
-        return function () { return uid++; }
+        return function () {
+            return uid++;
+        }
     })();
 
     function sequence(element, pristine) {
-        if ( pristine === void 0 ) pristine = this.pristine;
+        if (pristine === void 0) pristine = this.pristine;
 
         /**
          * We first check if the element should reset.
          */
         if (!element.visible && element.revealed && element.config.reset) {
-            return animate.call(this, element, { reset: true })
+            return animate.call(this, element, {reset: true})
         }
 
         var seq = this.store.sequences[element.sequence.id];
@@ -921,7 +971,7 @@
             var visible = new SequenceModel(seq, 'visible', this.store);
             var revealed = new SequenceModel(seq, 'revealed', this.store);
 
-            seq.models = { visible: visible, revealed: revealed };
+            seq.models = {visible: visible, revealed: revealed};
 
             /**
              * If the sequence has no revealed members,
@@ -938,7 +988,7 @@
                 if (nextElement) {
                     cue.call(this, seq, visible.body[0], -1, pristine);
                     cue.call(this, seq, visible.body[0], +1, pristine);
-                    return animate.call(this, nextElement, { reveal: true, pristine: pristine })
+                    return animate.call(this, nextElement, {reveal: true, pristine: pristine})
                 }
             }
 
@@ -949,20 +999,20 @@
              */
             if (
                 !seq.blocked.head &&
-                i === [].concat( revealed.head ).pop() &&
-                i >= [].concat( visible.body ).shift()
+                i === [].concat(revealed.head).pop() &&
+                i >= [].concat(visible.body).shift()
             ) {
                 cue.call(this, seq, i, -1, pristine);
-                return animate.call(this, element, { reveal: true, pristine: pristine })
+                return animate.call(this, element, {reveal: true, pristine: pristine})
             }
 
             if (
                 !seq.blocked.foot &&
-                i === [].concat( revealed.foot ).shift() &&
-                i <= [].concat( visible.body ).pop()
+                i === [].concat(revealed.foot).shift() &&
+                i <= [].concat(visible.body).pop()
             ) {
                 cue.call(this, seq, i, +1, pristine);
-                return animate.call(this, element, { reveal: true, pristine: pristine })
+                return animate.call(this, element, {reveal: true, pristine: pristine})
             }
         }
     }
@@ -1046,7 +1096,9 @@
                 element.revealed = false;
             }
 
-            element.node.setAttribute('style', styles.filter(function (s) { return s !== ''; }).join(' '));
+            element.node.setAttribute('style', styles.filter(function (s) {
+                return s !== '';
+            }).join(' '));
         });
 
         each(this.store.containers, function (container) {
@@ -1071,14 +1123,14 @@
     }
 
     function isMobile(agent) {
-        if ( agent === void 0 ) agent = navigator.userAgent;
+        if (agent === void 0) agent = navigator.userAgent;
 
         return /Android|iPhone|iPad|iPod/i.test(agent)
     }
 
     function deepAssign(target) {
         var sources = [], len = arguments.length - 1;
-        while ( len-- > 0 ) sources[ len ] = arguments[ len + 1 ];
+        while (len-- > 0) sources[len] = arguments[len + 1];
 
         if (isObject(target)) {
             each(sources, function (source) {
@@ -1101,8 +1153,8 @@
 
     function reveal(target, options, syncing) {
         var this$1 = this;
-        if ( options === void 0 ) options = {};
-        if ( syncing === void 0 ) syncing = false;
+        if (options === void 0) options = {};
+        if (syncing === void 0) syncing = false;
 
         var containerBuffer = [];
         var sequence$$1;
@@ -1165,7 +1217,7 @@
                     );
                     if (containerId === null) {
                         containerId = nextUniqueId();
-                        containerBuffer.push({ id: containerId, node: containerNode });
+                        containerBuffer.push({id: containerId, node: containerNode});
                     }
                 }
 
@@ -1217,7 +1269,7 @@
          * make sure to add this call to the history.
          */
         if (syncing !== true) {
-            this.store.history.push({ target: target, options: options });
+            this.store.history.push({target: target, options: options});
 
             /**
              * Push initialization to the event queue, giving
@@ -1232,7 +1284,7 @@
 
     function getContainerId(node) {
         var collections = [], len = arguments.length - 1;
-        while ( len-- > 0 ) collections[ len ] = arguments[ len + 1 ];
+        while (len-- > 0) collections[len] = arguments[len + 1];
 
         var id = null;
         each(collections, function (collection) {
@@ -1259,7 +1311,9 @@
         initialize.call(this);
     }
 
-    var polyfill = function (x) { return (x > 0) - (x < 0) || +x; };
+    var polyfill = function (x) {
+        return (x > 0) - (x < 0) || +x;
+    };
     var mathSign = Math.sign || polyfill
 
     /*! @license miniraf v1.0.0
@@ -1294,7 +1348,9 @@
                 clock = currentTime;
                 callback(currentTime);
             } else {
-                setTimeout(function () { return polyfill$1(callback); }, 0);
+                setTimeout(function () {
+                    return polyfill$1(callback);
+                }, 0);
             }
         }
     })();
@@ -1347,14 +1403,16 @@
             top = container.node.scrollTop;
             left = container.node.scrollLeft;
         }
-        return { top: top, left: left }
+        return {top: top, left: left}
     }
 
     function isElementVisible(element) {
-        if ( element === void 0 ) element = {};
+        if (element === void 0) element = {};
 
         var container = this.store.containers[element.containerId];
-        if (!container) { return }
+        if (!container) {
+            return
+        }
 
         var viewFactor = Math.max(0, Math.min(1, element.config.viewFactor));
         var viewOffset = element.config.viewOffset;
@@ -1388,8 +1446,8 @@
         elements
     ) {
         var this$1 = this;
-        if ( event === void 0 ) event = { type: 'init' };
-        if ( elements === void 0 ) elements = this.store.elements;
+        if (event === void 0) event = {type: 'init'};
+        if (elements === void 0) elements = this.store.elements;
 
         index(function () {
             var stale = event.type === 'init' || event.type === 'resize';
@@ -1455,7 +1513,7 @@
     var instance;
 
     function ScrollReveal(options) {
-        if ( options === void 0 ) options = {};
+        if (options === void 0) options = {};
 
         var invokedWithoutNew =
             typeof this === 'undefined' ||
@@ -1519,24 +1577,62 @@
         boundClean = boundClean || clean.bind(this);
         boundSync = boundSync || sync.bind(this);
 
-        Object.defineProperty(this, 'delegate', { get: function () { return boundDelegate; } });
-        Object.defineProperty(this, 'destroy', { get: function () { return boundDestroy; } });
-        Object.defineProperty(this, 'reveal', { get: function () { return boundReveal; } });
-        Object.defineProperty(this, 'clean', { get: function () { return boundClean; } });
-        Object.defineProperty(this, 'sync', { get: function () { return boundSync; } });
+        Object.defineProperty(this, 'delegate', {
+            get: function () {
+                return boundDelegate;
+            }
+        });
+        Object.defineProperty(this, 'destroy', {
+            get: function () {
+                return boundDestroy;
+            }
+        });
+        Object.defineProperty(this, 'reveal', {
+            get: function () {
+                return boundReveal;
+            }
+        });
+        Object.defineProperty(this, 'clean', {
+            get: function () {
+                return boundClean;
+            }
+        });
+        Object.defineProperty(this, 'sync', {
+            get: function () {
+                return boundSync;
+            }
+        });
 
-        Object.defineProperty(this, 'defaults', { get: function () { return config; } });
-        Object.defineProperty(this, 'version', { get: function () { return version; } });
-        Object.defineProperty(this, 'noop', { get: function () { return false; } });
+        Object.defineProperty(this, 'defaults', {
+            get: function () {
+                return config;
+            }
+        });
+        Object.defineProperty(this, 'version', {
+            get: function () {
+                return version;
+            }
+        });
+        Object.defineProperty(this, 'noop', {
+            get: function () {
+                return false;
+            }
+        });
 
         return instance ? instance : (instance = this)
     }
 
-    ScrollReveal.isSupported = function () { return transformSupported() && transitionSupported(); };
+    ScrollReveal.isSupported = function () {
+        return transformSupported() && transitionSupported();
+    };
 
     Object.defineProperty(ScrollReveal, 'debug', {
-        get: function () { return debug || false; },
-        set: function (value) { return (debug = typeof value === 'boolean' ? value : debug); }
+        get: function () {
+            return debug || false;
+        },
+        set: function (value) {
+            return (debug = typeof value === 'boolean' ? value : debug);
+        }
     });
 
     ScrollReveal();
