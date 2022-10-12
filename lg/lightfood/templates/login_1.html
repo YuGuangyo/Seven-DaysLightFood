@@ -1,0 +1,37 @@
+{% extends 'login.html' %}
+{% block login %}
+
+
+<form action="{% url 'login' %}" class="sign-in-form" method="post" onsubmit="return checkpassword()">
+    <h2 class="title">登录</h2>
+    <div class="input-field">
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="用户名" name="name" id="name"/>
+    </div>
+    <div class="input-field">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="密码" name="pwd" id="pwd"/>
+    </div>
+    <div style="color: red">
+        {{ errmsg }}
+    </div>
+    <span id="tishi"></span>
+    <input type="submit" value="登 录" class="btn solid" data-target="_self"/>
+
+    <p class="social-text">或者通过以下平台登录</p>
+    <div class="social-media">
+        <a href="#" class="social-icon">
+            <i class="fab fa-weixin"></i>
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-qq"></i>
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-alipay"></i>
+        </a>
+        <a href="#" class="social-icon">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</form>
+{% endblock %}

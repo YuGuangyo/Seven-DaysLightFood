@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+
+{#    {{ form_obj.as_p }}#}
+    <p>
+        {{ form_obj.user.label }}
+        {{ form_obj.user }}
+        {{ form_obj.errors.0 }}
+
+    </p>
+    <p>
+        {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <strong>{{ error|escape }}</strong>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+    </p>
+    <p>
+        {{ form_obj.pwd.label }}
+        {{ form_obj.pwd }}
+
+    </p>
+    <p>
+        {{ form_obj.gender }}
+
+    </p>
+    <input type="submit">
+
+</form>
+</body>
+</html>

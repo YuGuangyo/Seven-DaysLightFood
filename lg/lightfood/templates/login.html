@@ -1,10 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
+<!DOCTYPE html>
+
+<script type="text/javascript">
+    function checkpassword() {
+        var name = document.getElementById("name").value;
+        var pwd = document.getElementById("pwd").value;
+
+        if (name && pwd) {
+            return true;
+        }
+        else {
+            document.getElementById("tishi").innerHTML = "<br><font color='red'>请输入完整信息！</font>";
+            return false;
+        }
+    }
+</script>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script
+            src="../static/Public/Front/base/js/1.js"
+            crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../static/Public/Front/base/css/style.css"/>
+    <title>注册和登录表单</title>
 </head>
 <body>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            {% block from %}
 
+            {% endblock %}
+            {% block login %}
+
+            {% endblock %}
+            {#            <form action="{% url 'login' %}" class="sign-in-form" method="post" onsubmit="return checkpassword()">#}
+            {#                <h2 class="title">登录</h2>#}
+            {#                <div class="input-field">#}
+            {#                    <i class="fas fa-user"></i>#}
+            {#                    <input type="text" placeholder="用户名" name="name" id="name"/>#}
+            {#                </div>#}
+            {#                <div class="input-field">#}
+            {#                    <i class="fas fa-lock"></i>#}
+            {#                    <input type="password" placeholder="密码" name="pwd" id="pwd"/>#}
+            {#                </div>#}
+            {#                <span id="tishi"></span>#}
+            {#                <input type="submit" value="登 录" class="btn solid" data-target="_self"/>#}
+            {#                <p class="social-text">或者通过以下平台登录</p>#}
+            {#                <div class="social-media">#}
+            {#                    <a href="#" class="social-icon">#}
+            {#                        <i class="fab fa-weixin"></i>#}
+            {#                    </a>#}
+            {#                    <a href="#" class="social-icon">#}
+            {#                        <i class="fab fa-qq"></i>#}
+            {#                    </a>#}
+            {#                    <a href="#" class="social-icon">#}
+            {#                        <i class="fab fa-alipay"></i>#}
+            {#                    </a>#}
+            {#                    <a href="#" class="social-icon">#}
+            {#                        <i class="fab fa-github"></i>#}
+            {#                    </a>#}
+            {#                </div>#}
+            {#            </form>#}
+
+            <form action="{% url 'register' %}" class="sign-up-form" method="post">
+                <h2 class="title">注册</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="用户名" name="user_name"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="邮箱" name="email" id="em" required/>
+                </div>
+
+                <script>
+                    document.getElementById("em").addEventListener("invalid", myFunction);
+
+                    function myFunction() {
+                        alert("请输入正确邮箱");
+                    }
+                </script>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="密码" name="pwd" id="pwd1" required="required" minlength="8"/>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="确认密码" name="repwd" id="pwd2" onblur="check2pwd()"
+                           required="required" minlength="8"/>
+                </div>
+
+
+                <script>
+                    function check2pwd() {
+                        if (pwd1.value != pwd2.value) {
+                            alert("两次输入密码不一致！")
+                            pwd1.value = "";
+                            pwd2.value = "";
+                        }
+                    }
+
+                    document.getElementById("pwd1").addEventListener("invalid", myFunction);
+
+                    function myFunction() {
+                        alert("请输入正确手机号");
+                    }
+                </script>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="tel" name="phonenumber" required="required" maxlength="11" id="phone"
+                           pattern="^1(3\d|4[5-9]|5[0-35-9]|6[567]|7[0-8]|8\d|9[0-35-9])\d{8}$" placeholder="电话号码"
+                    />
+                </div>
+
+                <script>
+                    document.getElementById("phone").addEventListener("invalid", myFunction);
+
+                    function myFunction() {
+                        alert("请输入正确的11位手机号码");
+                    }
+                </script>
+
+                <input type="submit" class="btn" value="注 册"/>
+
+                <li class="agreement">
+                    <input type="checkbox" name="allow" id="allow" checked="checked">
+                    <label>同意”七日轻食使用协议“</label>
+                    <span class="error_tip2">提示信息</span>
+                </li>
+
+                <p class="social-text">或者通过以下平台注册</p>
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-weixin"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-qq"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-alipay"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>新用户?</h3>
+                <p>
+                    好兄弟,你来了,我们的网站就差你的加入了,点击下方注册按钮加入我们吧!!
+
+                </p>
+                <button class="btn transparent" id="sign-up-btn">
+                    注册
+                </button>
+
+                <a href="{% url 'login' %}">
+                    <button type="submit" class="btn transparent" id="log" href="">
+                        登陆
+                    </button>
+                </a>
+
+                <a href="{% url 'repassword' %}">
+                    <button type="submit" class="btn transparent" id="wj" href="">
+                        忘记密码？/修改
+                    </button>
+                </a>
+
+                {#                <li {% block a1 %}{% endblock %}><a href="{% url 'repassword' %}">图书图表</a></li>#}
+            </div>
+            <img src="../static/img/log.svg" class="image" alt=""/>
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>已经是我们自己人了吗?</h3>
+                <p>
+                    那好兄弟,你直接点击登录按钮,登录到我们这优秀的系统里!!
+                </p>
+                <button class="btn transparent" id="sign-in-btn">
+                    登 录
+                </button>
+            </div>
+            <img src="../static/img/register.svg" class="image" alt=""/>
+        </div>
+    </div>
+</div>
+
+<script src="../static/Public/Front/base/js/app.js"></script>
 </body>
 </html>

@@ -1,10 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html>
+<head><!--  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <title>七日轻食&LightFood</title>
+    <meta name="keywords" content="七日轻食&LightFood"/>
+    <meta name="description" content="七日轻食&LightFood"/>
+    <link rel="stylesheet" href="/static/Public/Front/base/css/swiper.min.css">
+    <link rel="stylesheet" href="/static/Public/Front/base/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/static/Public/Front/base/css/common.css">
+    <link rel="stylesheet" href="/static/Public/Front/base/css/index.css">
+    <link rel="Shortcut Icon" href="/static/Public/Front/base/images/ico.ico">
+    <!-- artDialog弹窗开始 -->
+<!--    <script type="text/javascript" src="/static/Public/Common/artDialog/artDialog.js?skin=aero"></script>-->
+<!--    <script type="text/javascript" src="/static/Public/Common/artDialog/plugins/iframeTools.js"></script>-->
+    <script>
+        window.onload = function () {
+            artDialog.tips = function (content, time) {
+                return artDialog({
+                    id: 'tips',
+                    title: false,
+                    cancel: false,
+                    fixed: true,
+                    //lock: true,
+                    zIndex: 99999999,
+                }).content('<div style="padding: 1em 2em;">' + content + '</div>').time(time || 1.5);
+            }
+        }
+    </script>
+    <style>
+        .aui_outer, .aui_state_focus {
+            transition: none !important;
+            -webkit-transition: none !important;
+            font-size: 14px !important;
+        }
+    </style><!-- artDialog弹窗结束 --></head>
+<body><!--  -->
+<div class="headerpage fixed">
+    <form id="sccmform" action="/Mo_index_gci_2.html" method="get">
+        <header>
+            <div class="container">
+                <a class="logo" href="/">
+                    <img src="/static/Public/Front/base/images/logo.png" alt="七日轻食&LightFood">
+                </a>
+                <div class="tools">
+                    <div class="navs">
+                        <ul>
+                            <li class="act"><a href={% url 'index' %} >首页</a></li>
+                            <li><a href={% url 'Brandintroduction' %}>品牌介绍</a></li>
+                            <li><a href="/Mo_index_gci_2.html">轻食系列</a>
+                                <div class="subnav"><a href="/Mo_index_gci_8.html">爱意水果捞</a>
+                                    <a href="/Mo_index_gci_11.html">轻食荞麦面</a>
+                                    <a href="/Mo_index_gci_25.html">轻蔬拌饭</a>
+                                    <a href="/Mo_index_gci_22.html">燃脂沙拉</a>
+                                    <a href="/Mo_index_gci_9.html">创意果茶</a>
+                                    <a href="/Mo_index_gci_23.html">三明治&卷饼</a>
+                                    <a href="/Mo_index_gci_10.html">汤&粥</a>
+                                    <a href="/Mo_index_gci_27.html">汁&酱</a>
+                                </div>
+                            </li>
+                            <li><a href="{% url 'login' %}">加入会员</a></li>
+                            <li><a href="/Go_index_gci_4.html">立即下单</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-abbreviation nav-abbreviation1">
+                        <div class="nav-abb-c"></div>
+                    </div>
+                    <div class="search">
+                        <div class="puts">
+                            <input type="text" placeholder="输入关键词搜索产品" name="kw" value="">
+                            <img class="closeput" src="../static/Public/Front/base/images/cha.png" alt="七日轻食&LightFood">
 
+                        </div>
+                        <a href="javascript:;"><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <i/staticnput type="hidden" name="token" value="6666cd76f96956469e7be39d750cc7d9_7b748dc2e0a09c9a9c57151f1701d5c2"/>
+    </form>
+</div><!-- 首屏轮播 -->
+<div class="banner">
+    <div class="swiper myswiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><a class="swia" href="#"
+                                         style="background: url('/static/SdwlUploads/Bn/1.jpg') no-repeat center"></a>
+            </div>
+            <div class="swiper-slide"><a class="swia" href="#"
+                                         style="background: url('/static/SdwlUploads/Bn/2.jpg') no-repeat center"></a>
+            </div>
+            <div class="swiper-slide"><a class="swia" href="#"
+                                         style="background: url('/static/SdwlUploads/Bn/3.jpg') no-repeat center"></a>
+            </div>
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="scroll_down">
+        <div class="container">
+            <div class="line"><img src="/static/Public/Front/base/images/shubiao.png" alt="七日轻食&LightFood"></div>
+            <div class="txt">scroll</div>
+        </div>
+    </div>
+</div>
+<div class="videotan">
+    <div class="guan"></div>
+    <video id="movideo" autoplay='autoplay' controls src=""></video>
+</div>
+<div class="cards">
+    <div class="container">
+        <div class="mvideo isplay" src="/static/SdwlUploads/Hm/video1.mp4">
+            <video id='video1' poster="/static/SdwlUploads/Hm/t_1.png"></video>
+            <div class="vidplay isplay" isvideo="/static/SdwlUploads/Hm/video1.mp4"><img
+                    src="/static/Public/Front/base/images/play.png">
+                <div class="dquan dquan2"></div>
+            </div>
+        </div>
+        <div class="mcard  counter-valuet">
+            <div class="cards_ban"><img class="zs" src="/static/Public/Front/base/images/cardban-zs.png"
+                                        alt="七日轻食&LightFood">
+                <div class="swiper mySwiper1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/static/SdwlUploads/Hm/carban1.png"
+                                                       alt="七日轻食&LightFood"></div>
+                        <div class="swiper-slide"><img src="/static/SdwlUploads/Hm/carban2.png"
+                                                       alt="七日轻食&LightFood"></div>
+                        <div class="swiper-slide"><img src="/static/SdwlUploads/Hm/carban3.png"
+                                                       alt="七日轻食&LightFood"></div>
+                        <div class="swiper-slide"><img src="/static/SdwlUploads/Hm/carban4.png"
+                                                       alt="七日轻食&LightFood"></div>
+                        <div class="swiper-slide"><img src="/static/SdwlUploads/Hm/carban5.png"
+                                                       alt="七日轻食&LightFood"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards_intro">
+                <div class="title counter-valuer">
+                    <div class="en">ABOUT US</div>
+                    <div class="zh">关于轻食</div>
+                </div>
+                <div class="txts titLimit3"><p>Salad丨健康轻食的“清流”！<br>
+
+                    全身都充满了运动减脂的热情<br>
+                    运动与轻食都是减脂必选条件
+
+
+                </p>
+                </div>
+                <a class="more" href="/Ab_index_gci_1.html">立即下单
+                    <div class="blue"><img src="/static/Public/Front/base/images/arrow-r.png" alt="七日轻食&LightFood">
+                    </div>
+                </a></div>
+        </div>
+    </div>
+</div>
+<div class="product">
+    <div class="title titlec counter-valuer">
+        <div class="en">PRODUCT</div>
+        <div class="zh">产品系列</div>
+    </div>
+    <div class="container  counter-valuet">
+        <div class="txts"><p>
+            七日轻食&LightFood围追求健康营养均衡兼顾美味口感，让人吃得健康，生活更自在轻盈~</p>
+        </div>
+    </div>
+    <div class="pro_card  counter-valuet">
+        <div class="pro_li" href="/Mo_index_gci_8.html"
+             style="background-image: url('/static/SdwlUploads/Hm/6_1.png');">
+            <div class="pro_lin">
+                <div class="sign sign1" style="font-size: 20px">爱意水果捞~</div>
+                <div class="txts"><p style="font-size: 18px">七彩缤纷水果捞<br/><span style="font-size: 16px;">“ヘルシーでおいしい、甘酸っぱい”</span></p>
+                </div>
+                <a href="/Mo_index_gci_8.html"><img src="/static/Public/Front/base/images/cir-arrow-r.png"
+                                                    alt="七日轻食&LightFood"></a></div>
+        </div>
+        <div class="pro_li active" href="/Mo_index_gci_9.html"
+             style="background-image: url('/static/SdwlUploads/Hm/6_2.png');">
+            <div class="pro_lin">
+                <div class="sign sign2" style="font-size: 20px">轻食荞麦面</div>
+                <div class="txts"><p style="font-size: 18px">番茄虾仁荞麦面</p>
+                    <p style="white-space: normal;"><span style="font-size: 16px;">“时刻为你健康着想~”</span></p>
+                    <p style="white-space: normal;"><br/></p>
+                    <p><br/></p></div>
+                <a href="/Mo_index_gci_9.html"><img src="/static/Public/Front/base/images/cir-arrow-r.png"
+                                                    alt="七日轻食&LightFood"></a></div>
+        </div>
+        <div class="pro_li" href="#" style="background-image: url('/static/SdwlUploads/Hm/6_5.png');">
+            <div class="pro_lin">
+                <div class="sign sign3" style="font-size: 20px">轻蔬拌饭</div>
+                <div class="txts"><p style="font-size: 18px">西蓝花炒双菇</p>
+                    <p><span style="font-size: 16px;">“西藍花が恋した~”</span></p>
+                    <p><br/></p></div>
+                <a href="#"><img src="/static/Public/Front/base/images/cir-arrow-r.png" alt="七日轻食&LightFood"></a></div>
+        </div>
+        <div class="pro_li" href="/Mo_index_gci_11.html"
+             style="background-image: url('/static/SdwlUploads/Hm/6_4.png');">
+            <div class="pro_lin">
+                <div class="sign sign4" style="font-size: 20px">燃脂沙拉</div>
+                <div class="txts"><p style="font-size: 18px">低脂鸡胸肉沙拉<br/></p>
+                    <p style="white-space: normal;"><span style="font-size: 16px;">“清爽低脂沙拉与夏天最配哦”</span></p></div>
+                <a href="/Mo_index_gci_11.html"><img src="/static/Public/Front/base/images/cir-arrow-r.png"
+                                                     alt="七日轻食&LightFood"></a></div>
+        </div>
+        <div class="pro_li" href="/Mo_index_gci_22.html"
+             style="background-image: url('/static/SdwlUploads/Hm/6_3.png');">
+            <div class="pro_lin">
+                <div class="sign sign5" style="font-size: 20px">三明治&卷饼</div>
+                <div class="txts"><p style="font-size: 18px">芝士蟹柳蛋三明治</p>
+                    <p><span style="font-size: 14px;">“チーズ&カニヤナギ&タマゴのカーニバル”</span><br/></p>
+                    <p style="white-space: normal;"><br/></p>
+                    <p><br/></p></div>
+                <a href="/Mo_index_gci_22.html"><img src="/static/Public/Front/base/images/cir-arrow-r.png"
+                                                     alt="七日轻食&LightFood"></a></div>
+        </div>
+        <div class="pro_li" href="/Mo_index_gci_10.html"
+             style="background-image: url('/static/SdwlUploads/Hm/6_7.png');">
+            <div class="pro_lin">
+                <div class="sign sign6" style="font-size: 20px">汤&粥</div>
+                <div class="txts"><p style="font-size: 18px">低卡玉米浓汤</p>
+                    <p><span style="font-size: 14px;">“一口就爱上~又鲜又好喝”</span></p></div>
+                <a href="/Mo_index_gci_10.html"><img src="/static/Public/Front/base/images/cir-arrow-r.png"
+                                                     alt="七日轻食&LightFood"></a></div>
+        </div>
+    </div>
+</div>
+<div class="brand">
+    <div class="container">
+        <div class="title counter-valuel">
+            <div class="en">大家一起做轻食</div>
+            <div class="zh">同人轻食打卡！</div>
+        </div>
+        <a class="more" href="/Ne_index_gci_3.html">立即下单
+            <div class="blue"><img src="/static/Public/Front/base/images/arrow-r.png" alt="七日轻食&LightFood"></div>
+        </a></div>
+    <div class="swi_brand counter-valuet">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="sbli"><a target="_blank" href="https://www.xiaohongshu.com/discovery/item/62f0662b0000000016037ccb?app_platform=android&app_version=7.32.0&share_from_user_hidden=true&xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665390466">
+                        <div class="img"><img src="/static/SdwlUploads/Ne/t_2.jpg"
+                                              alt="好吃不胖 轻食外卖。推荐给所有减脂人！"></div>
+                        <div class="time">2022-02-18</div>
+                        <div class="h4 titLimit">好吃不胖 轻食外卖。推荐给所有减脂人！</div>
+                        <div class="txts titLimitMore">
+                            这一定是我控制体重的快乐！
+                            终于能这么有食欲的多吃点蔬菜了
+                        </div>
+                    </a></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="sbli"><a target="_blank" href="https://www.xiaohongshu.com/discovery/item/61c195dc000000000102d535?app_platform=android&app_version=7.32.0&share_from_user_hidden=true&xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665390950l">
+                        <div class="img"><img src="/static/SdwlUploads/Ne/t_3.jpg"
+                                              alt="低脂轻食健康餐 | 鸡胸肉波奇饭"></div>
+                        <div class="time">2022-02-18</div>
+                        <div class="h4 titLimit">低脂轻食健康餐 | 鸡胸肉波奇饭</div>
+                        <div class="txts titLimitMore">
+                            丰富多样的食材是我爱波奇饭的最主要的原因，搭配各种沙拉汁一直都是吃不腻的波奇饭！
+                        </div>
+                    </a></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="sbli"><a target="_blank" href="https://www.xiaohongshu.com/discovery/item/630eeb6c00000000080217d6?app_platform=android&app_version=7.32.0&share_from_user_hidden=true&xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665392368">
+                        <div class="img"><img src="/static/SdwlUploads/Ne/t_5.jpg"
+                                              alt="健身打工人的福音，绝佳轻食工作餐 "></div>
+                        <div class="time">2022-02-18</div>
+                        <div class="h4 titLimit">健身打工人的福音，绝佳轻食工作餐</div>
+                        <div class="txts titLimitMore">
+                            几个平时健身减脂的朋友点名要去的西餐厅，我惊了! 这家我也经常来啊，我都不知道还可以这样吃优质蛋白碳水！
+
+                        </div>
+                    </a></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="sbli"><a target="_blank" href="https://www.xiaohongshu.com/discovery/item/627f5ca2000000000102df21?app_platform=android&app_version=7.32.0&share_from_user_hidden=true&xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665391423">
+                        <div class="img"><img src="/static/SdwlUploads/Ne/t_4.jpg"
+                                              alt="周末 | 清爽轻食"> </div>
+                        <div class="time">2022-02-18</div>
+                        <div class="h4 titLimit">周末 | 清爽轻食 </div>
+                        <div class="txts titLimitMore">
+                            又到周末啦，在家给弟弟安排一顿简单清爽有颜又有营养的轻食~ 主要是好吃不长肉~
+                        </div>
+                    </a></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="sbli"><a target="_blank" href="https://www.xiaohongshu.com/discovery/item/6070ef970000000001025b53?app_platform=android&app_version=7.32.0&share_from_user_hidden=true&xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665389640">
+                        <div class="img"><img src="/static/SdwlUploads/Ne/t_1.jpg"
+                                              alt="春日低卡早餐盘，健康轻食一盘端"></div>
+                        <div class="time">2022-02-18</div>
+                        <div class="h4 titLimit">春日低卡早餐盘，健康轻食一盘端</div>
+                        <div class="txts titLimitMore">
+                            哈哈哈，今天的早餐盘有春意盎然的感觉，色彩搭配有点棒，搭配有：芦笋，孢子甘蓝，小香肠，鸡蛋，无花果 ，蓝莓，红黄小番茄
+                        </div>
+                    </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</div>
+<div class="footerpage">
+    <footer>
+        <div class="slidetop"><img src="/static/Public/Front/base/images/slidetop.png" alt="七日轻食&LightFood"></div>
+        <div class="container">
+            <div class="fnav">
+                <div class="fnl"><h5>公司地址</h5>
+                    <p>晋中市经济开发区文化街聚晟商务</p></div>
+                <div class="fnc"><h5>联系我们</h5>
+                    <p>电话：0x0-12345678 （周一至周五：8:30-12:00,13:00-17:30）</p>
+                    <p>邮编：??????</p></div>
+                <div class="fnr"><h5>一键关注</h5>
+                    <ul>
+                        <li>
+                            <a target="_blank" href="https://www.xiaohongshu.com/user/profile/618344f7000000000201bb5d?xhsshare=CopyLink&a/staticppuid=618344f7000000000201bb5d&apptime=1665405479">
+                                <img src="/static/Public/Front/base/images/book.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://weibo.com/yuguangyo">
+                                <img src="/static/Public/Front/base/images/weibo.png" alt="七日轻食&LightFood">
+                            </a>
+                        </li>
+                        <li class="codeli">
+                            <img src="/static/Public/Front/base/images/weixin.png" alt="七日轻食&LightFood">
+                            <div class="codeimgs">
+                                <img src="/static/Public/Front/base/images/code-bg.png" alt="七日轻食&LightFood">
+                                <img class="codeico" src="/static/SdwlUploads/Ot/t_code.png" alt="七日轻食&LightFood">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="intro">
+                <div class="le">
+                    <div><a href="https://www.bilibili.com" target="_blank">干杯┼</a>
+                        <span>|</span>
+                        <a href="https://user.qzone.qq.com/1589373525" target="_blank">TOKYO  GHOUL</a>
+                        <span>|</span>
+                        <a href="https://user.qzone.qq.com/1589373525" target="_blank">崔宁最爱</a>
+                    </div>
+                    <div>一个i我离giaogiao高i哦啊噶</div>
+                    </div>
+                <div class="ri">
+<!--                    <div><a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备11014717号-2 </a></div>-->
+                    <div>©七日轻食&LightFood有限公司版权所有</div>
+                </div>
+            </div>
+            <div class="bottom">
+                <span>
+                    <a href="https://www.bilibili.com/video/BV1y34y1s7x7/" target="_blank">最遗憾的是和你</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+</div>
+<style>
+    /*
+    表格隔行变色
+    */
+    .ue-table-interlace-color-single {
+        background-color: #fcfcfc;
+    }
+
+    .ue-table-interlace-color-double {
+        background-color: #f7faff;
+    }
+
+    /*
+    分割线
+    */
+    hr {
+        display: block;
+        unicode-bidi: isolate;
+        -webkit-margin-before: 0.5em;
+        -webkit-margin-after: 0.5em;
+        -webkit-margin-start: auto;
+        -webkit-margin-end: auto;
+        overflow: hidden;
+        border-style: inset;
+        border-width: 1px;
+    }
+</style>
+<link href="/static/Public/Common/csscm/video-js.css" rel="stylesheet">
+<script src="/static/Public/Common/jscm/video.js"></script>
+<script>
+    videojs.options.flash.swf = "/static/Public/Common/swfcm/video-js.swf";
+</script>
+<script>
+    $(function () {
+        $("#sccmbutton").click(function () {
+            $("#sccmform").submit();
+        });
+    });
+</script>
 </body>
+<script src="/static/Public/Front/base/js/jquery-1.11.2.min.js"></script>
+<script src="/static/Public/Front/base/js/scrollre.js"></script>
+<script src="/static/Public/Front/base/js/swiper.min.js"></script>
+<script src="/static/Public/Front/base/js/swiper-bundle.min.js"></script>
+<script src="/static/Public/Front/base/js/main.js"></script>
+<script>
+    var mySwiper = new Swiper('.banner .swiper', {
+        autoplay: true,
+        observer: true,
+        observeParents: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            clickableClass: 'my-pagination-clickable',
+            renderBullet: function (index, className) {
+                console.log(index);
+                console.log(className);
+                return '<div class="' + className + ' dits"></div>'
+            },
+        },
+    })
+    //获取屏幕高度
+    $(".swia").css("height", $(window).height() + "px");
+    $(".line img").click(function () {
+        $('body,html').animate({scrollTop: $(window).height() + "px"}, 350);
+    });
+    // **关于品牌
+    var swiper1 = new Swiper(".mySwiper1", {
+        loop: true,
+        autoplay: true,
+        effect: "cards",
+        grabCursor: true,
+        centeredSlides: true,
+    });
+    $('.guan').click(function () {
+        $('.videotan').removeClass("active")
+        ovideo = document.getElementById('movideo')
+        ovideo.pause()
+    })
+    $('.isplay').click(function () {
+        $("#movideo").attr("src", $(this).attr("src"))
+        $('.videotan').addClass("active")
+    })
+    // **产品系列
+    var winW = $(window).width();
+    if (winW > 640) {
+        $(".pro_li").hover(function () {
+            $(this).addClass("active").siblings().removeClass('active');
+        })
+    } else {
+        $(".pro_li").removeClass('active');
+    }
+
+    //  **品牌资讯
+    var swiper2 = new Swiper(".swi_brand .swiper", {
+        autoplay: true,
+        loop: true,
+        slidesPerView: 2,
+        spaceBetween: 15,
+        navigation: {
+            nextEl: '.swi_brand .swiper-button-prev',
+        },
+        breakpoints: {
+            991: {
+                slidesPerView: 3.5,
+                spaceBetween: 30,
+            },
+            540: {
+                slidesPerView: 2.5,
+            },
+        }
+    });
+</script>
 </html>

@@ -27,7 +27,7 @@ class GoodSku(models.Model):
     goods_price = models.DecimalField(max_digits=5, decimal_places=2)  # 单价
     goods_rest = models.IntegerField()  # 库存
     CHOICES = ((1, "在售"), (2, "下架"))
-    goods_statue = models.IntegerField(choices=CHOICES,max_length=32)  # 状态
+    goods_statue = models.IntegerField(choices=CHOICES)  # 状态
     goods_type_id = models.ForeignKey(to= 'GoodSpu', on_delete=models.CASCADE,null=True)
     goods_order_id = models.ForeignKey(to= 'app_shopping.OrderInfo',on_delete=models.CASCADE,null=True,blank=True)
 class Shift(models.Model):
