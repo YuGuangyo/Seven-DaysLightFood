@@ -1026,7 +1026,7 @@
     </column>
     <column id="260" parent="235" name="goods_statue">
       <Position>5</Position>
-      <DataType>varchar(32)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1130,7 +1130,7 @@
     </column>
     <column id="280" parent="237" name="img_path">
       <Position>3</Position>
-      <DataType>varchar(32)|0</DataType>
+      <DataType>varchar(128)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1230,7 +1230,7 @@
     </column>
     <column id="298" parent="240" name="order_paytype">
       <Position>5</Position>
-      <DataType>varchar(32)|0</DataType>
+      <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

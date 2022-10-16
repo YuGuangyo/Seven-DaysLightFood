@@ -13,8 +13,9 @@ class GoodSpu(models.Model):
 class Imgs(models.Model):  # 菜品图片表
     img_id = models.AutoField(primary_key=True)  # 商品id主键
     img_name = models.CharField(max_length=32)  # 图片名称
-    img_path = models.CharField(max_length=32)  # 图片路径
+    img_path = models.CharField(max_length=128)  # 图片路径
     img_type_id = models.ForeignKey(to='GoodSpu', on_delete=models.CASCADE,null=True)
+
 
 
 class GoodsKinds(models.Model):
@@ -27,7 +28,7 @@ class GoodSku(models.Model):
     goods_price = models.DecimalField(max_digits=5, decimal_places=2)  # 单价
     goods_rest = models.IntegerField()  # 库存
     CHOICES = ((1, "在售"), (2, "下架"))
-    goods_statue = models.IntegerField(choices=CHOICES,max_length=32)  # 状态
+    goods_statue = models.IntegerField(choices=CHOICES)  # 状态
     goods_type_id = models.ForeignKey(to= 'GoodSpu', on_delete=models.CASCADE,null=True)
     goods_order_id = models.ForeignKey(to= 'app_shopping.OrderInfo',on_delete=models.CASCADE,null=True,blank=True)
 class Shift(models.Model):
