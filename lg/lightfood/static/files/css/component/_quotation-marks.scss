@@ -1,0 +1,30 @@
+.icon-quotation-marks {
+  &--inline,
+  &--block {
+    &::before,
+    &::after {
+      content: '';
+      background: escape-svg($icon-quotation-marks) center;
+      background-repeat: no-repeat;
+    }
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+  &--inline {
+    &::before,
+    &::after {
+      display: inline-block;
+      margin-left: 0.4em;
+      margin-right: 0.4em;
+      @include box-size(1.4em);
+      vertical-align: top;
+    }
+  }
+  &--block {
+    &::before,
+    &::after {
+      display: block;
+    }
+  }
+}

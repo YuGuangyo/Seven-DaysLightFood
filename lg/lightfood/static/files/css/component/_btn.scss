@@ -1,0 +1,45 @@
+.mc-btn {
+  @mixin core-style($btn: $btn) {
+    @each $style, $val in $btn {
+      @if $style != 'padding-x' {
+        #{$style}: $val;
+      }
+    }
+    @include padding-x(map-get($btn, padding-x));
+    @include padding-y(
+      (map-get($btn, height) - map-get($btn, line-height)) / 2 -
+        map-get($btn, border-width)
+    );
+  }
+  @include core-style($btn);
+  display: inline-block;
+  border-color: transparent;
+  border-style: solid;
+  @each $theme, $val in $btn-theme {
+    &-#{$theme} {
+      @include css($val);
+      &:hover,
+      &:active,
+      &:focus {
+        color: map-get($val, color);
+      }
+    }
+    &-outline-#{$theme} {
+      border-color: map-get($val, background-color);
+      color: black;
+      &:hover,
+      &:active,
+      &:focus {
+        color: black;
+      }
+    }
+  }
+  @each $size, $val in $btn-sizes {
+    &-#{$size} {
+      @include core-style($val);
+    }
+  }
+  &-round {
+    border-radius: 50px;
+  }
+}

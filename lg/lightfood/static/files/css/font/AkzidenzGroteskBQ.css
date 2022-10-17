@@ -1,0 +1,13 @@
+@font-face {
+	font-family: "AkzidenzGroteskBQ";
+	src: url('AkzidenzGroteskBQ-Medium.eot'); /* IE9*/
+	src: url('AkzidenzGroteskBQ-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	     url('AkzidenzGroteskBQ-Medium.woff') format('woff'), /* chrome, firefox */
+		 url('AkzidenzGroteskBQ-Medium.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+		 url('AkzidenzGroteskBQ-Medium.svg#AkzidenzGroteskBQ-Bold') format('svg'); /* iOS 4.1- */
+	font-family: "AkzidenzGroteskBQCnd";
+	src: url('AkzidenzGrotesk-BoldCond.otf');
+}
+
+
+.ff-akz { font-family: "AkzidenzGroteskBQ"; }

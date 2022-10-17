@@ -1,0 +1,162 @@
+@import 'structure/main';
+
+.media-box {
+  overflow: hidden;
+  video {
+    width: 100%;
+  }
+  &.is_ios {
+    display: block!important;
+    width: 0;
+    height: 0;
+    .close {
+      display: none;
+    }
+    video {
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+.content-inner {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  @media (max-width: 1024px) {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media (max-width: 767px) {
+    max-width: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+// 关注点赞
+
+.follows {
+  .bdsharebuttonbox {
+    a {
+      display: inline-block;
+      position: static;
+      float: none;
+      width: 22px;
+      height: 22px;
+      font-size: 22px;
+      margin: 0 15px 0 0;
+      text-align: center;
+      line-height: 20px;
+      color: #999;
+      color: #808080;
+      background: none;
+      text-indent: 0;
+      vertical-align: top;
+      &:hover {
+        color: $secondary;
+      }
+    }
+    button {
+      display: inline-block;
+      vertical-align: top;
+      margin-top: -5px;
+      i {
+        display: inline-block;
+        margin-right: 2px;
+        font-size: 20px;
+        color: #999;
+        color: #808080;
+        vertical-align: middle;
+      }
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        color: #7f7f7f;
+      }
+      &:hover {
+        i,
+        span {
+          color: $secondary;
+        }
+      }
+      &.active {
+        i {
+          display: inline-block;
+          animation: popOutB 1s ease-out 1;
+        }
+        i,
+        span {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.popup-box {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  // flex-direction: column;
+  // justify-content: center;
+  background: rgba($color: #fff, $alpha: 0.7);
+  transition: all 0.5s ease-out;
+  overflow: auto;
+  .popup-image {
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .close-btn {
+    position: fixed;
+    z-index: 1;
+    top: 14px;
+    right: 19px;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: $primary;
+    i {
+      font-size: 14px;
+      color: #fff;
+    }
+  }
+  &.pop-show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.popup-content {
+  position: relative;
+  width: 605px;
+  margin: auto;
+  // height: 100%;
+  // max-height: calc(100% - 200px);
+  // overflow: auto;
+  padding: 100px 0;
+  @media (max-width: 768px) {
+    width: 625px;
+  }
+  @media (max-width: 767px) {
+    width: calc(100% - 40px);
+    // max-height: calc(100% - 140px);
+    // margin: auto;
+    padding: 70px 0;
+  }
+}

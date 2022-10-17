@@ -1,0 +1,43 @@
+@mixin translate-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin flex-center($inline: false) {
+  display: if($inline == true, inline-flex, flex);
+  justify-content: center;
+  align-items: center;
+}
+@mixin absolute-center($width: 100%, $height: 100%) {
+  position: absolute;
+  top: (100% - $height)/2;
+  left: (100% - $width)/2;
+  width: $width;
+  height: $height;
+}
+@mixin padding-x($num) {
+  padding-left: $num;
+  padding-right: $num;
+}
+@mixin padding-y($num) {
+  padding-top: $num;
+  padding-bottom: $num;
+}
+@mixin margin-x($num) {
+  margin-left: $num;
+  margin-right: $num;
+}
+@mixin margin-y($num) {
+  margin-top: $num;
+  margin-bottom: $num;
+}
+@mixin box-size($width: 0, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin css($style: none) {
+  @each $style, $val in $style {
+    #{$style}: $val;
+  }
+}

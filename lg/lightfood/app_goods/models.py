@@ -8,16 +8,15 @@ class GoodSpu(models.Model):
     type_id = models.AutoField(primary_key=True)  # 商品id主键
     type_name = models.CharField(max_length=32)  # 商品名称
     type_details = models.CharField(max_length=32)  # 商品详情
-    type_kinds_id = models.ForeignKey(to='GoodsKinds',on_delete=models.CASCADE,null=True)
+    # type_kinds_id = models.ForeignKey(to='GoodsKinds',on_delete=models.CASCADE,null=True,related_name='kinds')
+    type_kinds_id = models.ForeignKey(to='GoodsKinds',on_delete=models.CASCADE,null=True,related_name='kinds')
     type_shift_id = models.ForeignKey(to= 'Shift',on_delete=models.CASCADE,null=True)
+    type_path = models.CharField(max_length=128,default=1)    #spu的路径
 class Imgs(models.Model):  # 菜品图片表
     img_id = models.AutoField(primary_key=True)  # 商品id主键
     img_name = models.CharField(max_length=32)  # 图片名称
     img_path = models.CharField(max_length=128)  # 图片路径
     img_type_id = models.ForeignKey(to='GoodSpu', on_delete=models.CASCADE,null=True)
-
-
-
 class GoodsKinds(models.Model):
     goods_kinds_id = models.AutoField(primary_key=True)  # 商品id主键
     goods_kings_name = models.CharField(max_length=32)  # 商品种类名称

@@ -1,0 +1,77 @@
+.cmsPage {
+  &#{&}--calculator {
+    max-width: none;
+    padding: 0;
+    border-top: none;
+    @media (max-width: 767px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.table-calculator {
+  $table-bg: #f7f7f7;
+  $border-y: $table-bg 1px solid;
+  $border-x: #dedede 1px solid;
+
+  min-width: 100%;
+  font-size: 16px;
+  text-align: center;
+  border-collapse: collapse;
+  background-color: $table-bg;
+  &--caption,
+  caption {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: $secondary;
+  }
+  &--caption {
+    display: block;
+  }
+  .vertical {
+    display: flex;
+    margin: auto;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+  }
+  th,
+  td {
+    padding: 15px 20px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  thead {
+    background-color: #fff;
+    th:not(:last-child) {
+      border-right: $border-y;
+    }
+    th:first-child {
+      background-color: #fff;
+    }
+  }
+  tbody {
+    th,
+    td {
+      border-bottom: $border-x;
+    }
+    th:first-child {
+      background-color: $table-bg;
+    }
+  }
+  tr th:first-child {
+    position: sticky;
+    left: 0;
+  }
+}
+.cmsMainBox .cmsMainBoxCon {
+  .table-responsive {
+    margin-bottom: 1.5em;
+  }
+}

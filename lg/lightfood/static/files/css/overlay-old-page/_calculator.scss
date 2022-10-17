@@ -1,0 +1,14 @@
+.calculator-info {
+  h4 {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: inherit;
+    &::before {
+      content: '';
+      margin-right: 0.4em;
+      @include box-size(60px);
+      background: escape-svg($icon-calculator);
+    }
+  }
+}

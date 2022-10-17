@@ -1,0 +1,36 @@
+.inlude-component {
+  margin-top: 40px;
+  @extend .content-inner;
+  box-sizing: border-box;
+  *,
+  *::before,
+  *:after {
+    box-sizing: inherit;
+  }
+  .embed-responsive {
+    height: auto;
+  }
+
+  .product-hot-spots {
+    position: relative;
+    .embed-responsive {
+      &::before {
+        padding-top: percentage(5 / 6);
+        @include media-breakpoint-up(lg) {
+          padding-top: percentage(9 / 16);
+        }
+      }
+    }
+  }
+  > img,
+  video {
+    display: block;
+    width: 100%;
+  }
+  .video {
+    @extend .mc-video;
+  }
+}
+
+@import 'hotPoint';
+@import 'popupBackdrop';

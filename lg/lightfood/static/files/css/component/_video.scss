@@ -1,0 +1,34 @@
+.mc-video {
+  position: relative;
+  cursor: pointer;
+  &::after {
+    @include translate-center;
+    z-index: 2;
+    @include flex-center;
+    content: '\e7af';
+    width: 58px;
+    height: 44px;
+    font-family: iconfont;
+    font-size: 16px;
+    color: #000;
+    background: #ffbc0d;
+    border-radius: 10px;
+    pointer-events: none;
+    transform-origin: center;
+    transition: 0.2s ease;
+    transition-property: opacity;
+    pointer-events: none;
+  }
+  &.video--playing {
+    pointer-events: none;
+    &::after {
+      opacity: 0;
+    }
+    video {
+      pointer-events: auto;
+    }
+  }
+  video {
+    pointer-events: none;
+  }
+}

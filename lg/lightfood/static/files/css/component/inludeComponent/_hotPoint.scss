@@ -1,0 +1,214 @@
+.hot-point-group {
+  @include absolute-center;
+  z-index: 1;
+  padding: 20px;
+  font-size: 12px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  .hot-point {
+    opacity: 0;
+    transform: scale(0.6);
+    transition: 0.5s ease;
+    transition-property: opacity, transform;
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        transition-delay: 0.08s * $i;
+      }
+    }
+  }
+
+  &.ready {
+    visibility: visible;
+    opacity: 1;
+    .hot-point {
+      opacity: 1;
+      transform: translateY(-50%);
+    }
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 16px;
+  }
+}
+.hot-point {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  @include margin-x(0.6em);
+  padding: 0.3125em 0.9375em;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.625;
+  color: $onPoint;
+  transform: translateY(-50%);
+  cursor: default;
+  &[data-more] {
+    z-index: 5;
+    cursor: pointer;
+    &:hover {
+      z-index: 6;
+    }
+    &::after {
+      content: '';
+      display: block;
+      margin-left: 0.4em;
+      @include box-size(1.625em);
+      background: escape-svg($icon-search);
+      animation: $icon-search-animation infinite;
+    }
+  }
+  @each $direction in ('left', 'right') {
+    &[data-arrow='#{$direction}'] {
+      transform-origin: $direction;
+    }
+  }
+  &::before {
+    content: '';
+    display: block;
+    @include absolute-center;
+    background-color: $pointBg;
+    box-shadow: 0 0 6px $pointShadow;
+    z-index: -1;
+  }
+  .arrow {
+    &--left,
+    &--right {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        border-color: transparent;
+        border-style: solid;
+        border-top-width: 0.5em;
+        border-bottom-width: 0.5em;
+      }
+      &::after {
+        z-index: -2;
+        filter: blur(3px);
+      }
+    }
+    @each $direction, $value in ('left': 'right', 'right': 'left') {
+      &--#{$direction} {
+        &::before,
+        &::after {
+          #{$value}: 100%;
+          border-#{$value}-width: 0.6em;
+        }
+        &::before {
+          border-#{$value}-color: $pointBg;
+        }
+        &::after {
+          border-#{$value}-color: $pointShadow;
+        }
+      }
+    }
+  }
+}
+.hot-point-popup {
+  display: none;
+  max-width: 280px;
+  padding: 20px 15px;
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: $pointBg;
+  box-shadow: 0 0 6px $pointShadow;
+  @include media-breakpoint-up(xxl) {
+    [data-more] & {
+      position: absolute;
+      width: 240px;
+      animation: fadeIn 0.2s ease both;
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: -20px;
+        right: -20px;
+        top: -20px;
+        bottom: -20px;
+      }
+    }
+    [data-more='left'] &,
+    [data-more='right'] & {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    [data-more='left'] & {
+      right: 100%;
+    }
+    [data-more='right'] & {
+      left: 100%;
+    }
+    [data-more='top'] & {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    [data-more='bottom'] & {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hot-point:hover & {
+      display: block;
+    }
+  }
+  h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 0.8em;
+  }
+  img {
+    display: block;
+    @include box-size(250px);
+    object-fit: cover;
+    @include media-breakpoint-up(xxl) {
+      @include box-size(210px);
+    }
+  }
+  .btn {
+    display: inline-block;
+    @include padding-x(1.5em);
+    margin-top: 20px;
+    font-size: 14px;
+    color: $onPoint;
+    border: $primary 2px solid;
+    border-radius: 40px;
+  }
+}
+.point-popup {
+  // @include flex-center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3110;
+  text-align: center;
+  overflow: auto;
+  &-content {
+    @include flex-center;
+    display: inline-flex;
+    min-height: 100%;
+    margin: auto;
+    flex-direction: column;
+    padding: 40px;
+  }
+  .hot-point-popup {
+    display: block;
+  }
+  &-close {
+    align-self: flex-end;
+    margin-right: -22px;
+    @include flex-center;
+    @include box-size(32px);
+    border: none;
+    border-radius: 50%;
+    color: $primary;
+    background-color: $pointBg;
+    appearance: none;
+  }
+}

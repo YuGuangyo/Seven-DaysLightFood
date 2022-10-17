@@ -1,0 +1,209 @@
+.institute-homepage-banner {
+  .inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .banner-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .follows {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    display: flex;
+  }
+  .follow-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    line-height: 1;
+    color: #727171;
+    span {
+      margin-left: 5px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .inner {
+      max-width: none;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+  @media (max-width: 998px) {
+    .follows {
+      left: 10px;
+      bottom: 18px;
+    }
+  }
+  @media (max-width: 767px) {
+    margin-top: 10px;
+  }
+}
+.institute-functional-area {
+  margin-top: 30px;
+  .inner {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1024px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+.institute-functional-area-swiper {
+  position: relative;
+  @media (min-width: 991px) {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .swiper-slide {
+    width: 25%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  .institute-functional-item {
+    display: block;
+    width: 100%;
+    img {
+      display: block;
+      width: 100%;
+    }
+    @at-root .is_desktop & {
+      position: relative;
+      &::after {
+        content: '';
+        @include absolute-center;
+        background-color: rgba(#eee, 0.7);
+        opacity: 0;
+        transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      .mc-btn {
+        z-index: 2;
+        @include padding-x(28px);
+        @include translate-center;
+        transform: translate(-50%, -50%) scaleX(0);
+        transition: 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        opacity: 0;
+        transition-property: opacity transform;
+      }
+      &:hover {
+        &::after {
+          opacity: 1;
+        }
+        .mc-btn {
+          opacity: 1;
+          transform: translate(-50%, -50%) scaleX(1);
+        }
+      }
+    }
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    background: none;
+    width: 14px;
+    height: 30px;
+    font-family: 'iconfont';
+    &::before {
+      font-size: 30px;
+    }
+  }
+  .swiper-button-prev {
+    left: -33px;
+    &::before {
+      content: '\e707';
+    }
+  }
+  .swiper-button-next {
+    right: -33px;
+    &::before {
+      content: '\e708';
+    }
+  }
+  .swiper-pagination {
+    width: 100%;
+    bottom: -20px;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: rgba($color: #000000, $alpha: 0.1);
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: rgba($color: #000000, $alpha: 1);
+  }
+  @media (min-width: 1024px) {
+    &:not(.swiper-init) {
+      .swiper-wrapper {
+        justify-content: center;
+      }
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
+      .swiper-pagination {
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .swiper-button-prev,
+    .swiper-button-next {
+      display: none;
+    }
+    // .swiper-slide {
+    //   height: 297px;
+    // }
+  }
+
+  @media (max-width: 998px) {
+    .swiper-wrapper {
+      flex-wrap: wrap;
+      width: auto;
+      margin: -10px -5px 0;
+    }
+    .swiper-slide {
+      width: 50%;
+      height: auto;
+      padding: 10px 5px 0;
+      &:nth-child(odd) {
+        padding-right: 24px;
+        padding-left: 8px;
+      }
+      &:nth-child(even) {
+        padding-left: 24px;
+        padding-right: 8px;
+      }
+      .mc-btn {
+        margin-bottom: 20px;
+      }
+    }
+    .swiper-pagination {
+      display: none;
+    }
+    .institute-functional-item {
+      img {
+        height: auto;
+      }
+    }
+  }
+  @media (max-width: 998px) and (min-width: 768px) {
+    .swiper-slide {
+      &:nth-child(odd) {
+        padding-right: 48px;
+        padding-left: 32px;
+      }
+      &:nth-child(even) {
+        padding-left: 48px;
+        padding-right: 32px;
+      }
+    }
+  }
+}

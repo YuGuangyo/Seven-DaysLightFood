@@ -1,0 +1,76 @@
+.mc-cafe {
+  &-banner {
+    position: relative;
+    margin-bottom: 30px;
+    img {
+      display: block;
+      width: 100%;
+    }
+    .follows {
+      position: absolute;
+      left: 15px;
+      bottom: 10px;
+      display: flex;
+      .bdsharebuttonbox {
+        a,
+        button,
+        button i,
+        button span {
+          color: inherit;
+        }
+        a,
+        button {
+          &.active i,
+          &:hover {
+            color: $secondary;
+          }
+        }
+      }
+    }
+  }
+  .icon-quotation-marks--block {
+    @include margin-y(50px);
+    @include padding-x(35px);
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: normal;
+    @include media-breakpoint-up(sm) {
+      @include margin-y(60px);
+    }
+    &::before,
+    &::after {
+      width: 90px;
+      height: 65px;
+    }
+    @include media-breakpoint-down(md) {
+      &::before,
+      &::after {
+        margin-left: -35px;
+      }
+      &::before {
+        margin-bottom: 20px;
+      }
+      &::after {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: -35px;
+        text-align: right;
+      }
+    }
+    @include media-breakpoint-up(md) {
+      position: relative;
+      @include padding-x(170px);
+      &::before,
+      &::after {
+        position: absolute;
+        top: 0;
+      }
+      &::before {
+        left: 0;
+      }
+      &::after {
+        right: 0;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ from app_goods.models import *
 from django.contrib import auth
 from django.http import JsonResponse
 from django.views import View
-from app_goods.models import GoodSpu,GoodsKinds
+from app_goods.models import GoodSpu, GoodsKinds
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import re, time
@@ -11,6 +11,8 @@ import redis
 from rest_framework.response import Response
 from rest_framework import serializers
 from django.core import serializers
+
+
 # from .serializers import C
 # Create your views here.
 # def CaiPin(request):
@@ -59,16 +61,36 @@ from django.core import serializers
 #     response.set_cookie('cart', cart_cookie, max_age=constants.CART_COOKIE_EXPIRES)  # 给相应设置cookie
 #     return response
 def CaiPin(request):
-    # products = GoodSpu.objects.all()
+    # kinds = GoodSpu.objects.all()
+    kinds = GoodsKinds.objects.all()
     spu_img = Imgs.objects.all()
-    # products = Imgs.objects.all().
+    # print(kinds)
+    # print(kinds.first())
+    # print(kinds.first().goodspu_set)
+    # print(kinds.first().goodspu_set.first().type_name)
+    try:
+        b = request.GET.get('id')
+
+        c = int(b)
+        spu = GoodsKinds.objects.get(goods_kinds_id=b)
+    except Exception:
+        spu = GoodsKinds.objects.get(goods_kinds_id=1)
+
+    a = spu.kinds.all()
+    # print(a[1].type_name)
+    # for i in a:
+    #     print(i)
+    #     print(i.type_name)
+    # print(a)
+
 
     # print(products)
-    print(spu_img)
+    # print(spu_img)
     return render(request, 'CaiPin.html', locals())
+
+
 def ceshi(request):
     return HttpResponse('1563265')
-
 
 # # from goods.models import GoodsType, GoodsSKU, IndexGoodsBanner, IndexPromotionBanner, IndexTypeGoodsBanner
 #
@@ -106,6 +128,5 @@ def ceshi(request):
 #            'goods_banners': goods_banners,
 #            'promotion_banners': promotion_banners,
 #            }
-
-
-
+def sku(request):
+    return render(request,'sku.html')

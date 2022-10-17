@@ -105,6 +105,20 @@
     transition: all 0.4s;
 }
 
+.nav_b .nav_li1 {
+    width: auto;
+    height: 85px;
+    overflow: hidden;
+    padding: 0 18px;
+    line-height: 85px;
+    font-family: "OPPOSans";
+    color: #54b061;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.4s;
+}
+
+
 .nav_b .nav_li:hover, .nav_b .nav_li.ncur {
     font-weight: bold;
 }
@@ -854,33 +868,33 @@
     left: 0;
     width: 60px;
     height: 60px;
-    background: url(../img/t32.png) no-repeat center;
+    background: url(../img/tleft.png) no-repeat center;
     background-size: cover;
 }
 
-.btn-direct.btn-left:hover {
-    left: 0;
-    width: 60px;
-    height: 60px;
-    background: url(../img/t34.png) no-repeat center;
-    background-size: cover;
-}
+/*.btn-direct.btn-left:hover {*/
+    /*left: 0;*/
+    /*width: 60px;*/
+    /*height: 60px;*/
+    /*background: url(../img/t34.png) no-repeat center;*/
+    /*background-size: cover;*/
+/*}*/
 
 .btn-direct.btn-right {
     right: 0;
     width: 60px;
     height: 60px;
-    background: url(../img/t33.png) no-repeat center;
+    background: url(../img/tright.png) no-repeat center;
     background-size: cover;
 }
 
-.btn-direct.btn-right:hover {
-    right: 0;
-    width: 60px;
-    height: 60px;
-    background: url(../img/t35.png) no-repeat center;
-    background-size: cover;
-}
+/*.btn-direct.btn-right:hover {*/
+    /*right: 0;*/
+    /*width: 60px;*/
+    /*height: 60px;*/
+    /*background: url(../img/t35.png) no-repeat center;*/
+    /*background-size: cover;*/
+/*}*/
 
 .product {
     width: 100%;
@@ -913,7 +927,7 @@
     width: 100%;
     height: 121px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t11.png) no-repeat right 0;
+    background: url(../img/t21.png) no-repeat right 0;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -926,7 +940,7 @@
     width: 100%;
     height: 115px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t12.png) no-repeat left 0;
+    background: url(../img/t22.png) no-repeat left 0;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -938,7 +952,7 @@
     width: 100%;
     height: 147px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t10.png) no-repeat left 55px;
+    background: url(../img/t20.png) no-repeat left 55px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -948,37 +962,37 @@
 
 @keyframes lang1 {
     0% {
-        background: url(/static/Public/home/img/t10.png) no-repeat right 55px;
+        background: url(../img/t20.png) no-repeat right 55px;
     }
     50% {
-        background: url(/static/Public/home/img/t10.png) no-repeat left 55px;
+        background: url(../img/t20.png) no-repeat left 55px;
     }
     100% {
-        background: url(/static/Public/home/img/t10.png) no-repeat right 55px;
+        background: url(../img/t20.png) no-repeat right 55px;
     }
 }
 
 @keyframes lang2 {
     0% {
-        background: url(/static/Public/home/img/t12.png) no-repeat left 0;
+        background: url(../img/t22.png) no-repeat left 0;
     }
     50% {
-        background: url(/static/Public/home/img/t12.png) no-repeat right 0;
+        background: url(../img/t22.png) no-repeat right 0;
     }
     100% {
-        background: url(/static/Public/home/img/t12.png) no-repeat left 0;
+        background: url(../img/t22.png) no-repeat left 0;
     }
 }
 
 @keyframes lang3 {
     0% {
-        background: url(/static/Public/home/img/t11.png) no-repeat right 0;
+        background: url(../img/t21.png) no-repeat right 0;
     }
     50% {
-        background: url(/static/Public/home/img/t11.png) no-repeat left 0;
+        background: url(../img/t21.png) no-repeat left 0;
     }
     100% {
-        background: url(/static/Public/home/img/t11.png) no-repeat right 0;
+        background: url(../img/t21.png) no-repeat right 0;
     }
 }
 
@@ -992,7 +1006,7 @@
     bottom: -77%;
     width: 46%;
     padding-top: 46%;
-    background: #54b061;
+    background: #50a44c;
     opacity: 1;
     filter: alpha(opacity=100);
 }
@@ -1008,7 +1022,7 @@
 .product .product_bg .bubble3 {
     right: -8%;
     top: 2%;
-    background: #54b061;
+    background: #50a44c;
     width: 16%;
     padding-top: 16%;
 }
@@ -1016,7 +1030,7 @@
 .product .product_bg .bubble4 {
     right: 2%;
     top: 50%;
-    background-color: #54b061;
+    background-color: #50a44c;
     opacity: 1;
     width: 6%;
     padding-top: 6%;
@@ -1568,7 +1582,7 @@
     width: 100%;
     height: 121px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t11.png) no-repeat right 0;
+    background: url(../img/t11.png) no-repeat right 0;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1581,7 +1595,7 @@
     width: 100%;
     height: 115px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t12.png) no-repeat left 0;
+    background: url(../img/t12.png) no-repeat left 0;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1593,7 +1607,7 @@
     width: 100%;
     height: 147px;
     overflow: hidden;
-    background: url(/static/Public/home/img/t10.png) no-repeat left 55px;
+    background: url(../img/t10.png) no-repeat left 55px;
     position: absolute;
     left: 0;
     bottom: 0;

@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "speedee";
+  font-weight: 200;
+  font-style: normal;
+	src: url('Speedee_W_Lt.woff') format('woff')
+}
+@font-face {
+  font-family: "speedee";
+  font-weight: 200;
+  font-style: italic;
+	src: url('Speedee_W_LtIt.woff') format('woff')
+}
+@font-face {
+  font-family: "speedee";
+  font-weight: 300;
+  font-style: normal;
+	src: url('Speedee_W_Rg.woff') format('woff')
+}
+@font-face {
+  font-family: "speedee";
+  font-weight: 300;
+  font-style: italic;
+	src: url('Speedee_W_It.woff') format('woff')
+}
+@font-face {
+  font-family: "speedee";
+  font-weight: 700;
+  font-style: normal;
+	src: url('Speedee_W_Bd.woff') format('woff')
+}
+@font-face {
+  font-family: "speedee";
+  font-weight: 700;
+  font-style: italic;
+	src: url('Speedee_W_BdIt.woff') format('woff')
+}
