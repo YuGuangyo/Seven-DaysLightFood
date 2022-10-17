@@ -29,8 +29,13 @@ class GoodSku(models.Model):
     CHOICES = ((1, "在售"), (2, "下架"))
     goods_statue = models.IntegerField(choices=CHOICES)  # 状态
     goods_type_id = models.ForeignKey(to= 'GoodSpu', on_delete=models.CASCADE,null=True)
+    goods_SkuType_id = models.ForeignKey(to= 'SkuType',on_delete=models.CASCADE,null=True)
     goods_order_id = models.ForeignKey(to= 'app_shopping.OrderInfo',on_delete=models.CASCADE,null=True,blank=True)
 class Shift(models.Model):
     shift_id = models.AutoField(primary_key=True)  #轮播id主键
     discount_url = models.CharField(max_length=32)
     discount_count = models.BooleanField(default=0)
+
+class SkuType(models.Model):
+    SkuType_id = models.AutoField(primary_key=True)
+    SkuType_name = models.CharField(max_length=32)  # 名称

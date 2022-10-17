@@ -128,5 +128,15 @@ def ceshi(request):
 #            'goods_banners': goods_banners,
 #            'promotion_banners': promotion_banners,
 #            }
-def sku(request):
-    return render(request,'sku.html')
+class SaGood(View):
+
+    def get(self, request, goods_id):
+        # try:
+        print(goods_id)
+        spu = GoodSpu.objects.get(type_id=goods_id)
+        print(spu.type_name)
+        print(spu.type_id)
+        img = Imgs.objects.get(img_id=spu.type_id)
+        print(img.img_name)
+
+        return render(request, 'sku.html', locals())
