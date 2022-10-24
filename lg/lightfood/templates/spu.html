@@ -1,0 +1,30 @@
+
+{% extends 'CaiPin.html' %}
+
+{% block spu %}
+
+
+{% for foo in spu_img %}
+    <li class="cards-list">
+        <div class="img">
+            <img src="{{ foo.img_path }}" alt="{{ foo.img_name }}">
+        </div>
+        <div class="main-con">
+            <h4 class="name"></h4>
+            <h4 class="name"></h4>
+            <h4 class="name"></h4>
+            <h4 class="name"></h4>
+            <h4 class="name"></h4>
+            <h4 class="name">{{ foo.img_name }}</h4>
+            <div class="content">
+
+                <p>
+                    {{ foo.img_type_id.type_details }}
+                </p>
+
+                <br/><a target="_blank" href="/goodsku/{{ foo.img_type_id.type_id }}">进入详情页</a>
+            </div>
+        </div>
+    </li>
+{% endfor %}
+{% endblock %}

@@ -3,7 +3,7 @@ from django.db import models
 
 # Create your models here.
 
-__all__ = ['OrderInfo']
+__all__ = ['OrderInfo','shopping']
 class OrderInfo(models.Model):
     order_id = models.AutoField(primary_key=True)
     order_time = models.DateTimeField(auto_now_add=True, db_index=True)
@@ -15,3 +15,10 @@ class OrderInfo(models.Model):
     order_state = models.BooleanField(default=0)
     order_freight = models.IntegerField(default=0)
     order_evaluate = models.OneToOneField(to='app_order.OrderEvaluate', on_delete=models.CASCADE,null=True)
+
+
+class shopping(models.Model):
+    shop_id = models.AutoField(primary_key=True)
+    shop_name = models.CharField(max_length=32)
+    shop_sku_name = models.CharField(max_length=32)
+    stu_id = models.ForeignKey(to='app_user.Stu', on_delete=models.CASCADE, null=True)
