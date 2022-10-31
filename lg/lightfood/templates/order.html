@@ -17,7 +17,7 @@
            </div>
            <div class="zhong">
                <div class="top">
-                   <h3>林丽</h3>
+                   <h3>{{ user_obj.username }}</h3>
                    <span>18500667882</span>
                </div>
                <div class="bottom">北京市  海淀区  中关村软件园   信息科技大厦1号楼410#
@@ -28,13 +28,14 @@
            </div>
         </div>
         <!-- 主体 -->
+        {% for foo in ord %}
         <div class="goods">
             <div class="zuo">
                 <img src="../static/order/uploads/pic.png" alt="">
             </div>
             <div class="zhong">
                 <div class="top">
-                    <h3>康尔贝 非接触式红外体温仪</h3>
+                    <h3>{{ foo.shop_spu_name }}</h3>
                     <span>领券立减30元 婴儿级材质 测温…</span>
                 </div>
                 <div class="wzzhong">粉色   红外体温计</div>
@@ -48,6 +49,7 @@
                 <span>1</span>
             </div>
         </div>
+        {% endfor %}
         <!-- 配送 -->
         <div class="ps">
             <div>

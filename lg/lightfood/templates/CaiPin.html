@@ -70,32 +70,131 @@
         </div>
         <div class="header_center">
             <div class="tnav">
-                {% for f in kinds %}
-                    <div class="nav_b" style="clear:both;">
-{#                    <div>#}
-                    <ul style="clear:both;">
-                        <a href="?id={{ f.goods_kinds_id }}">
-                            <li class="nav_li " id="sku">{{ f.goods_kings_name }}</li>
+                <div class="nav_b">
+                    <a href="#"
+                       title="七日轻食有限公司 七日轻食唯一官网 加盟热线:4000-515-777">
+                        <li class="nav_li ">爱意水果捞</li>
+                    </a>
+                    <li class="nav_s "></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/5">
+                            <div class="small">超级无敌巨无霸水果捞</div>
                         </a>
-
-                    {% if f.goods_kinds_id == forloop.counter %}
-                        {% for i in a %}
-                        <li class="nav_s "></li>
+                        <a href="/goodsku/6">
+                            <div class="small">七彩缤纷水果捞</div>
+                        </a>
+                    </li>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ">轻食荞麦面</li>
+                    </a>
+                    <li class="nav_s "></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/1">
+                            <div class="small">番茄虾仁荞麦面</div>
+                        </a>
+                        <a href="/goodsku/2">
+                            <div class="small">花生酱荞麦面</div>
+                        </a>
+                        <a href="/goodsku/3">
+                            <div class="small">鸡胸肉荞麦面</div>
+                        </a><a href="/goodsku/4">
+                        <div class="small">韩式拌面</div>
+                    </a>
+                    </li>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ncur">轻蔬拌饭</li>
+                    </a>
+                    <li class="nav_s cur"></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/7">
+                            <div class="small">韩式拌饭</div>
+                        </a>
+                        <a href="/goodsku/8">
+                            <div class="small">魔芋结手撕鸡</div>
+                        </a>
+                        <a href="/goodsku/9">
+                            <div class="small">西兰花炒双菇</div>
+                        </a>
+                    </li>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ">汤&粥
+                    <li class="nav_s "></li>
                         <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
-{#                            {{ a.goodspu_set.1.type_name }}#}
-                            <a href="">
-                            <div class="small" >{{ i.type_name }} </div>
+                            <a href="/goodsku/17">
+                                <div class="small">低卡玉米浓汤</div>
                             </a>
-
-{#                            {{ f.goodspu__set.goodsku__set.goods_name.0 }}#}
+                            <a href="/goodsku/18">
+                                <div class="small">醇香营养豆浆</div>
+                            </a>
+                            <a href="/goodsku/19">
+                                <div class="small">滋补红糖姜茶</div>
+                            </a>
                         </li>
-                        {% endfor %}
-                           {% endif %}
-
-
-                    </ul>
-                    </div>
-                {% endfor %}
+                    </a>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ">燃脂沙拉</li>
+                    </a>
+                    <li class="nav_s "></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/28">
+                            <div class="small">低脂鸡胸肉土豆泥沙拉</div>
+                        </a>
+                        <a href="/goodsku/12">
+                            <div class="small">土豆泥沙拉</div>
+                        </a>
+                        <a href="/goodsku/11">
+                            <div class="small">尼斯沙拉</div>
+                        </a><a href="/goodsku/10">
+                        <div class="small">鸡胸肉蔬菜沙拉</div>
+                    </a>
+                    </li>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ">三明治&卷饼</li>
+                    </a>
+                    <li class="nav_s "></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/23">
+                            <div class="small">芝士蟹柳三明治</div>
+                        </a>
+                        <a href="/goodsku/24">
+                            <div class="small">泡菜鸡肉卷饼</div>
+                        </a>
+                        <a href="/goodsku/25">
+                            <div class="small">芝士滑蛋卷饼</div>
+                        </a><a href="/goodsku/26">
+                            <div class="small">芝士牛肉卷饼</div>
+                        </a><a href="/goodsku/27">
+                            <div class="small">生菜三明治</div>
+                        </a>
+                    </li>
+                </div>
+                <div class="nav_b">
+                    <a href="#">
+                        <li class="nav_li ">果茶</li>
+                    </a>
+                    <li class="nav_s "></li>
+                    <li class="nav_c" style="right:0; transform: scale(1) translatex(-183px);">
+                        <a href="/goodsku/20">
+                            <div class="small">芒果水果茶</div>
+                        </a>
+                        <a href="/goodsku/21">
+                            <div class="small">西柚水果茶</div>
+                        </a>
+                        <a href="/goodsku/22">
+                            <div class="small">橙子水果茶</div>
+                        </a>
+                    </li>
+                </div>
             </div>
         </div>
     </div>

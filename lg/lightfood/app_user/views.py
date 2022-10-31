@@ -94,7 +94,7 @@ def log_out(request):
     logout(request)
     return redirect('login')
 # 加上装饰器使得方法只能在登录后调用
-# @login_required(login_url='login/')  # 这里设置未登录时跳转路径
+@login_required(login_url='login/')  # 这里设置未登录时跳转路径
 def index(request):
     return render(request, 'index.html')
 
