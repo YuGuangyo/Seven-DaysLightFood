@@ -10,25 +10,27 @@
     <link rel="stylesheet" href="../static/order/lib/iconfont/iconfont.css">
 </head>
 <body>
-    <div class="box">
-        <div class="b1">
-           <div class="left">
-               <i class="iconfont icon-location"></i>
-           </div>
-           <div class="zhong">
-               <div class="top">
-                   <h3>{{ user_obj.username }}</h3>
-                   <span>18500667882</span>
-               </div>
-               <div class="bottom">北京市  海淀区  中关村软件园   信息科技大厦1号楼410#
-               </div>
-           </div>
-           <div class="right">
-               <i class="iconfont icon-more"></i>
-           </div>
+<div class="box">
+    <div class="b1">
+        <div class="left">
+            <i class="iconfont icon-location"></i>
         </div>
-        <!-- 主体 -->
-        {% for foo in ord %}
+        <div class="zhong">
+            <div class="top">
+                <h3> {{ user_obj.username }} </h3>
+                <span>{{ user_obj.stu_phonenumber }}</span>
+            </div>
+            <div class="bottom">{{ user_obj.stu_address }}
+            </div>
+        </div>
+        <div class="right">
+            <a href="">
+                <i class="iconfont icon-more"></i>
+            </a>
+        </div>
+    </div>
+    <!-- 主体 -->
+    {% for foo in ord %}
         <div class="goods">
             <div class="zuo">
                 <img src="../static/order/uploads/pic.png" alt="">
@@ -36,42 +38,47 @@
             <div class="zhong">
                 <div class="top">
                     <h3>{{ foo.shop_spu_name }}</h3>
-                    <span>领券立减30元 婴儿级材质 测温…</span>
+                    <span>{{ foo.shop_sku_name }}</span>
                 </div>
-                <div class="wzzhong">粉色   红外体温计</div>
+                <div class="wzzhong"></div>
                 <div class="xia">
-                    <em>¥<span>266</span></em>
-                   <del> <i>¥<span>299</span></i></del>
+                    <em>¥<span>{{ foo.shop_price }}</span></em>
                 </div>
             </div>
             <div class="you">
                 <i class="iconfont icon-x"></i>
-                <span>1</span>
+                <span>{{ foo.shop_num }}</span>
             </div>
         </div>
-        {% endfor %}
-        <!-- 配送 -->
-        <div class="ps">
-            <div>
-                <span>配送方式</span>
-                <span>顺丰快递</span>
-            </div>
-            <div>
-                <i>买家备注</i>
-                <i>希望可以尽快发货，谢谢~</i>
-            </div>
-            <div>
-                <em>支付方式</em>
-                <em>支付宝<span class="iconfont icon-more"></span></em>
-            </div>
+    {% endfor %}
+    <!-- 配送 -->
+    <div class="ps">
+        <div>
+            <span>配送方式</span>
+            <span>走两步</span>
         </div>
+        <div>
+        </div>
+        <div>
+            <em>支付方式</em>
+            <em>支付宝<span class="iconfont icon-more"></span></em>
+        </div>
+    </div>
 
+</div>
+<div class="dibu">
+    <div class="zuo">
+        合计<span>￥{{ xj }}</span>
     </div>
-    <div class="dibu">
-        <div class="zuo">
-            合计<span>￥266.00</span>
-        </div>
-        <div class="you">去支付</div>
-    </div>
+    <div class="you"><a href="{% url 'del' %}"  name="pay" id="em" onclick="myFunction()">去支付</a></div>
+
+    <script>
+        document.getElementById("em").addEventListener("invalid", myFunction);
+        function myFunction() {
+            alert("支付完成");
+        }
+    </script>
+
+</div>
 </body>
 </html>

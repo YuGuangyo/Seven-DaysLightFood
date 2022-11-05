@@ -25,3 +25,4 @@ class Shopping(models.Model):
     # shop_img = models.CharField(max_length=32)
     shop_num = models.IntegerField(default=1)
     stu_id = models.ForeignKey(to='app_user.Stu', on_delete=models.CASCADE, null=True)
+    shop_delete = models.BooleanField(default=1)

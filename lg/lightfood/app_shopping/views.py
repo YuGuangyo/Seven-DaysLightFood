@@ -8,29 +8,31 @@ from django.http import JsonResponse
 
 class MyShop(View):
     def get(self, request):
-        cart = Shopping.objects.all()
+        user = request.user
+        user_id = Stu.objects.filter(username=user).first().stu_id
+        if Shopping.objects.filter(stu_id_id=user_id, shop_delete=1):
+            cart = Shopping.objects.filter(stu_id_id=user_id, shop_delete=1).all()
+            print(cart)
+        # cart = Shopping.objects.all()
 
-        sum_list = []
-        for i in cart:
-            sum = 0
-            sum += i.shop_price * i.shop_num
-            sum_list.append(sum)
-        xj = 0
-        for i in sum_list:
-            xj+=i
+            sum_list = []
+            for i in cart:
+                sum = 0
+                sum += i.shop_price * i.shop_num
+                sum_list.append(sum)
+            xj = 0
+            for i in sum_list:
+                xj+=i
 
-        print(cart)
-
-        i = cart[0]
-        k = i.shop_num * i.shop_price
-        print(k)
+            i = cart[0]
+            k = i.shop_num * i.shop_price
         return render(request, "shopping.html", locals())
 
     def post(self, request):
         print(123)
         id = request.POST.get('i_id')
         print(id)
-        if Shopping.objects.filter(shop_id=id):
+        if Shopping.objects.filter(shop_id=id, shop_delete=1):
             obj = Shopping.objects.filter(shop_id=id).first()
             if obj.shop_num < 50:
                 obj.shop_num += 1
@@ -55,7 +57,7 @@ class Sub(View):
 
     def post(self, request):
         id = request.POST.get('i_id')
-        if Shopping.objects.filter(shop_id=id):
+        if Shopping.objects.filter(shop_id=id, shop_delete=1):
             obj = Shopping.objects.filter(shop_id=id).first()
             if obj.shop_num > 1:
                 obj.shop_num -= 1
@@ -98,6 +100,10 @@ class AddPage(View):
                                     shop_sku_name=shop_sku.goods_SkuType_id.SkuType_name,
                                     shop_price=shop_sku.goods_price,
                                     stu_id_id=user_id)
+
+
+
+
             # Shopping.objects.create(shop_num=num)
         #     鸡胸肉荞麦面  烘煎芝士沙拉汁
 

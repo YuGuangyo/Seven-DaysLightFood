@@ -18,5 +18,5 @@ class Addr(models.Model):
     addr_name = models.CharField(max_length=32)
     addr_address = models.CharField(max_length=128)
     addr_phonenumber = models.CharField(max_length=11)
-    addr_stu_id = models.ManyToManyField(to='Stu')
+    addr_stu_id = models.ForeignKey(to='Stu', on_delete=models.CASCADE, null=True)
     addr_default = models.BooleanField(default=1)
