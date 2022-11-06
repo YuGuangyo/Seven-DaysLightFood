@@ -70,12 +70,14 @@
     <div class="zuo">
         合计<span>￥{{ xj }}</span>
     </div>
-    <div class="you"><a href="{% url 'del' %}"  name="pay" id="em" onclick="myFunction()">去支付</a></div>
+
+
+    <div class="you"><a href="{% url 'del' %}"  name="pay" id="em" onclick="myFunction()">支付</a></div>
 
     <script>
         document.getElementById("em").addEventListener("invalid", myFunction);
         function myFunction() {
-            alert("支付完成");
+            alert("订单已生成");
         }
     </script>
 

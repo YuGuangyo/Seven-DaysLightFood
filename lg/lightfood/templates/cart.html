@@ -31,10 +31,13 @@
 
     <link type="text/css" rel="stylesheet" href="/static/Public/home/css/common.css"/>
     <link type="text/css" rel="stylesheet" href="/static/Public/home/css/style.css?v=0.0.56"/>
-
+    <link rel="stylesheet" href="/static/orderinfo/css/base.css">
+    <link rel="stylesheet" href="/static/orderinfo/css/common.css">
     <link href="/static/Public/home/js/layui/css/layui.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/Public/home/css/animate.css">
     <link href="/static/Public/home/css/jquery.bxslider.css" rel="stylesheet" type="text/css">
+
+
     <script type="text/javascript">
         //全局变量
         var GV = {
@@ -222,9 +225,23 @@
                 <a href="{% url 'index' %}">
                     <div class="header_left"></div>
                 </a>
+
                 <div class="header_right">
                     <ul class="tel">
-                        <a href="{% url "shop" %}" class="nav_b" style="color: #fff">购物车</a>
+
+                        <a href="{% url "shop" %}" class="nav_b" style="color: #fff">购物车
+                            <div class="container">
+                                <div class="car fl" >
+                                    <span id="abcde">{{ num }}</span>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </a>
+
                     </ul>
                 </div>
                 <div class="header_center">

@@ -11,6 +11,7 @@
                                                 {#                                                <th width="16.666%;">钠</th>#}
                                                 <th width="12.5%;">
                                                     <button id="d1{{ forloop.counter }}">加入购物车</button>
+
                                                 </th>
 
                                                 </thead>
@@ -26,38 +27,23 @@
                                                                     data: { //发送给后端的数据
                                                                         {#obj : {{ i }};#}
                                                                         obj_id: {{ i.goods_id }}, //获得name为i1的标签值
+                                                                        num:{{ num }}
                                                                         {#i2: {{ }}, //获得name为i2的标签值#}
                                                                     },
                                                                     {#接受后端数据的函数#}
                                                                     success: function (data) {
-                                                                        console.log(data.obj_num)
+                                                                        console.log(data.obj_num);
+
                                                                         {#$("#number_{{ forloop.counter }}").val(data.obj_num)#}
                                                                         {#$("#s_c_p").text(data.sum_cart_price + "元")#}
                                                                         {#$("#d_p").text(data.discout_price + "元")#}
-                                                                        {#$("#s_p").text(data.save_price + "元")  #}
+                                                                        $("#abcde").text(data.num)
 
                                                                 },
                                                                 })
                                                             })
 
                                                     </script>
-
-
-
-
-{#                                                    <script>#}
-{#                                                        $('#d1{{ forloop.counter }}').click(function () {#}
-{#                                                            $.ajax({#}
-{#                                                                url:{% url 'shop' %},#}
-{#                                                                type: "post",#}
-{#                                                                data: {#}
-{#                                                                    a:{{ i.goods_id }}#}
-{#                                                                },#}
-{##}
-{#                                                            })})#}
-{#                                                        #}
-{#                                                    </script>#}
-
 
                                                     <td>
                                                         {#                                                        <span>能量</span>#}

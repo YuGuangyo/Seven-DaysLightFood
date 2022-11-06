@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人信息</title>
+  <link rel="stylesheet" href="/static/orderinfo/fonts/iconfont.css">
+  <link rel="stylesheet" href="/static/orderinfo/css/base.css">
+  <link rel="stylesheet" href="/static/orderinfo/css/common.css">
+  <link rel="stylesheet" href="/static/orderinfo/css/personal.css">
+</head>
+
+<body>
+  <!-- 头部区域 -->
+  <header>
+    <div class="xtx-nav">
+
+    </div>
+  </header>
+  <!-- 整个区域 -->
+  <div class="box w clearfix">
+    <!-- 左侧导航栏 -->
+    <div class="box-l fl">
+      <dl>
+        <dt>
+          <a href="#">个人信息</a>
+        </dt>
+        <dd><a href="#">主页</a></dd>
+        <dd><a href="#">商品页</a></dd>
+        <dd><a href="#">购物车</a></dd>
+        <dd><a href="#">地址管理</a></dd>
+      </dl>
+
+
+     
+    </div>
+    <!-- 右边主题区域 -->
+    <div class="box-r fr">
+      <!-- 个人设置区 -->
+      <div class="set">
+        <div class="avatar fl">
+        </div>
+
+        <span>{{ user }}</span>
+          <span></span>
+          <span></span>
+
+
+            <span>{{ user_phone }}</span>
+
+      </div>
+      <!-- 订单区域 -->
+
+{#    个人中心#}
+             {% block order %}
+
+            {% endblock %}
+{#    详情页#}
+        {% block xiang %}
+
+            {% endblock %}
+
+
+    </div>
+  </div>
+
+</body>
+
+</html>

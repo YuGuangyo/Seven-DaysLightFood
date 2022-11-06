@@ -1,0 +1,298 @@
+.w {
+  width: 1240px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.box {
+  margin-top: 20px;
+}
+
+.box-l {
+  width: 224px;
+  background-color: #fff;
+}
+
+footer {
+  background-color: #fff;
+}
+
+.box-r {
+  width: 996px;
+}
+
+.set {
+  height: 137px;
+  background-color: #26b99b;
+}
+
+.set .avatar {
+  width: 86px;
+  height: 86px;
+  margin: 23px 26px 0 60px;
+  border-radius: 50%;
+  background: url(../uploads/avatar_1.png);
+  background-size: 100%;
+}
+
+.set span {
+  display: inline-block;
+  margin-top: 56px;
+  color: #fff;
+}
+
+.set ul {
+  margin-top: 31px;
+  margin-right: 57px;
+  float: right;
+}
+
+.set ul li {
+  float: left;
+  margin-left: 107px;
+  text-align: center;
+}
+
+.set ul li a {
+  display: block;
+  height: 100%;
+}
+
+.set ul li a i {
+  font-size: 34px;
+  color: #fff;
+}
+
+.set ul li a em {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* 左侧导航区 */
+.box-l dl {
+  padding-bottom: 12px;
+  padding-left: 35px;
+  border-bottom: 1px solid #ccc;
+}
+
+.box-l dl dt {
+  margin-top: 37px;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+.box-l dl dd {
+  position: relative;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.box-l dl:last-child {
+  border-bottom: none;
+  padding-bottom: 60px;
+}
+
+.box-l dl dd a::before {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: 18px;
+  left: -14px;
+  border-radius: 50%;
+  display: none;
+  background-color: #5eb69c;
+}
+
+.box-l dl dd a:hover::before {
+  display: block;
+}
+
+.box-l dl dd a:hover {
+  color: #5eb69c;
+}
+
+/* 订单区 */
+.shop {
+  margin-top: 20px;
+  padding: 0 12px;
+  padding-bottom: 20px;
+  background-color: #fff;
+}
+
+.shop-hd {
+  height: 60px;
+  padding-top: 24px;
+  /* background-color: pink; */
+}
+
+.shop-hd h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+}
+
+.shop-hd a {
+  font-size: 16px;
+  color: #999;
+}
+
+.shop .shop-bd {
+  width: 100%;
+  height: 137px;
+  margin-bottom: 20px;
+  border: 1px solid #e8e8e8;
+  /* background-color: pink; */
+}
+
+.shop .shop-bd .shop-bd1 {
+  padding: 16px 0 0 12px;
+  height: 100%;
+  width: 590px;
+}
+
+.shop .shop-bd .shop-bd1 img {
+  width: 106px;
+  height: 106px;
+}
+
+.shop .shop-bd .info {
+  margin-top: 34px;
+  margin-left: 10px;
+}
+
+.shop .shop-bd .info p {
+  width: 210px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  color: #333;
+}
+
+.shop .shop-bd1 i {
+  margin-top: 42px;
+  margin-left: 127px;
+  color: #e05e30;
+}
+
+.shop .shop-bd .info span {
+  font-size: 14px;
+  color: #999;
+}
+
+.shop .shop-bd .shop-bd2 {
+  height: 100%;
+  width: 198px;
+  padding-top: 40px;
+  text-align: center;
+  border-left: 1px  solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+}
+
+.shop .shop-bd .shop-bd2 i {
+  font-size: 14px;
+  color: #9a2e1f;
+}
+
+.shop .shop-bd .shop-bd2 p,
+.shop .shop-bd .shop-bd2 span {
+  font-size: 14px;
+  color: #333;
+} 
+
+.shop .shop-bd .shop-bd3 {
+  height: 100%;
+  width: 181px;
+  text-align: center;
+}
+
+.shop .shop-bd .shop-bd3 a {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #27ba9b;
+}
+
+.shop .shop-bd .shop-bd3 p {
+  color: #333;
+  font-size: 14px;
+}
+
+.shop .shop2-bd {
+  margin-bottom: 0;
+}
+
+/* 我的收藏 */
+.collect {
+  width: 100%;
+  height: 408px;
+  margin-top: 20px;
+  padding-top: 22px;
+  background-color: #fff;
+}
+
+.collect-hd {
+  padding: 0 10px;
+  height: 37px;
+  margin-bottom: 20px;
+}
+
+.collect-hd h3 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.collect-bd ul li {
+  float: left;
+  width: 242px;
+  height: 304px;
+  background-color: #fff;
+  margin-right: 8px;
+}
+
+.collect-bd ul li:nth-child(4n) {
+  margin-right: 0;
+}
+
+.collect-bd ul li a {
+  display: block;
+  height: 100%;
+  padding: 22px 0 0 42px;
+}
+
+.collect-bd ul li a img {
+  width: 154px;
+  height: 154px;
+}
+
+.collect-bd ul li a p {
+  margin-top: 12px;
+  margin-bottom: 5px;
+  padding-right: 47px;
+  font-size: 16px;
+  color: #333;
+}
+
+.collect-bd ul li a span {
+  font-size: 22px;
+  color: #9a2e1f;
+}
+
+footer {
+  margin-top: 20px;
+}

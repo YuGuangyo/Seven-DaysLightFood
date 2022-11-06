@@ -1,0 +1,30 @@
+{
+  "id": "3489511",
+  "name": "小兔仙",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2811147",
+      "name": "会员",
+      "font_class": "huiyuan",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "8575288",
+      "name": "地址",
+      "font_class": "dizhi",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "15344278",
+      "name": "安全设置",
+      "font_class": "anquanshezhi",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+
+{% extends 'orderinfo.html' %}
+{% block xiang %}
+
+
+{% for i in order_user %}
+      <div class="shop">
+        <div class="shop-hd">
+          <h3 class="fl">我的订单</h3>
+          <a href="#" class="fr"> 查看全部 &gt;</a>
+        </div>
+
+        <div class="shop-bd">
+          <div class="shop-bd1 fl">
+
+            <div class="info fl">
+             <p>{{ i.order_id }}</p>
+             <span>{{ list }}</span>
+            </div>
+            <i class="fl">代付款</i>
+          </div>
+          <div class="shop-bd2 fl">
+            <i>￥99.00</i>
+            <p>含运费：¥10.00元</p>
+            <span>在线支付</span>
+          </div>
+          <div class="shop-bd3 fl">
+            <a href="#">立即付款</a>
+            <p>查看详情</p>
+            <p>取消订单</p>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+{% endblock %}

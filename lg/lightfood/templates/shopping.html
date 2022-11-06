@@ -72,8 +72,37 @@
                             </div>
                         </div>
                         <div id="i_{{ forloop.counter }}" class="p-sum">{% widthratio i.shop_num 1 i.shop_price %}</div>
-                        <div class="p-action"><a href="javascript:;">删除</a></div>
+                        <div class="p-action"><a href="" id="d1{{ forloop.counter }}">删除</a></div>
                     </div>
+
+
+                          <script>
+                                                        $('#d1' +{{ forloop.counter }}).click(
+                                                            function () {
+                                                                $.ajax({
+                                                                    url: {% url 'shopdel' %}, //请求的url地址,
+                                                                    type: "post", //请求的方式
+                                                                    async: false, // 同步
+                                                                    data: { //发送给后端的数据
+                                                                        {#obj : {{ i }};#}
+                                                                        obj_id: {{ i.shop_sku_id }}, //获得name为i1的标签值
+                                                                        {#i2: {{ }}, //获得name为i2的标签值#}
+                                                                    },
+                                                                    {#接受后端数据的函数#}
+                                                                    success: function (data) {
+                                                                        console.log(data.obj_num)
+                                                                        {#$("#number_{{ forloop.counter }}").val(data.obj_num)#}
+                                                                        {#$("#s_c_p").text(data.sum_cart_price + "元")#}
+                                                                        {#$("#d_p").text(data.discout_price + "元")#}
+                                                                        {#$("#s_p").text(data.save_price + "元")  #}
+
+                                                                },
+                                                                })
+                                                            })
+
+                                                    </script>
+
+
 {#                    <script>#}
 {##}
                         {#function add() {#}
@@ -120,8 +149,8 @@
                     全选
                 </div>
                 <div class="operation">
-                    <a href="javascript:;" class="remove-batch">删除选中的商品</a>
-                    <a href="javascript:;" class="clear-all">清理购物车</a>
+
+                    <a href="{% url 'shopdel' %}" class="clear-all">清理购物车</a>
                 </div>
                 <div class="toolbar-right">
                     <div class="amount-sum">

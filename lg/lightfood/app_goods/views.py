@@ -1,9 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse
-from app_goods.models import *
+from app_user.models import *
 from django.contrib import auth
 from django.http import JsonResponse
 from django.views import View
-from app_goods.models import GoodSpu, GoodsKinds
+from app_goods.models import *
+from app_shopping.models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import re, time
@@ -97,6 +98,12 @@ class SaGood(View):
         # try:
         # print(goods_id)
         spu = GoodSpu.objects.get(type_id=goods_id)
+        user=request.user
+        user_id = Stu.objects.filter(username=user).first().stu_id
+        cart =Shopping.objects.filter(stu_id_id=user_id,shop_delete=1)
+        num = 0
+        for i in cart:
+            num += i.shop_num
         # print(spu.type_name)
         # print(spu.type_id)
         img = Imgs.objects.get(img_type_id=spu.type_id)

@@ -75,7 +75,7 @@ class MyUser(View):
         try:
             if user.username == username:
                 user_obj = authenticate(username=username, password=password)
-                print(user_obj)
+                # print(user_obj)
                 if user_obj is not None:
                     login(request, user_obj)
                 else:
